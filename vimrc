@@ -117,7 +117,7 @@ Plugin 'isRuslan/vim-es6'
 
 Plugin 'majutsushi/tagbar'
 let g:tagbar_auto_faocus =1
-#autocmd BufReadPost *.rb call tagbar#autoopen()
+" autocmd BufReadPost *.rb call tagbar#autoopen()
 
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
