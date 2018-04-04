@@ -86,11 +86,13 @@ Plugin 'plasticboy/vim-markdown'
 
 " file tree like something called IDE
 Plugin 'scrooloose/nerdtree'
-map <silent><F8> :NERDTree<CR>
+" map <silent><F8> :NERDTree<CR>
 map <leader>r :NERDTreeFind<cr>
 map <leader>e :NERDTreeToggle<cr>
 map <leader>y "+y<cr>
 map <leader>p "+p<cr>
+nmap <F8> :NERDTreeToggle<CR>
+
 " coffeescript
 Plugin 'kchmck/vim-coffee-script'
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
@@ -118,10 +120,13 @@ Plugin 'isRuslan/vim-es6'
 Plugin 'majutsushi/tagbar'
 let g:tagbar_auto_faocus =1
 " autocmd BufReadPost *.rb call tagbar#autoopen()
-
+nmap <F9> :TagbarToggle<CR>
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 :map <F4> :Ack -i
+" let g:nerdtree_tabs_open_on_gui_startup = 0
+
+nmap <F3> :NERDTreeFocus<CR>
 
 call vundle#end()
