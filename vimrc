@@ -1,5 +1,18 @@
 set nocompatible               " be iMproved
 
+" Searching
+set ignorecase " case insensitive searching
+set smartcase " case-sensitive if expresson contains a capital letter
+set hlsearch
+set incsearch " set incremental search, like modern browsers
+set nolazyredraw " don't redraw while executing macros
+
+set magic " Set magic on, for regex
+
+set showmatch " show matching braces
+set mat=2 " how many tenths of a second to blink
+
+
 " 1 tab to 2 space for ruby
 set clipboard=unnamed
 set tabstop=2
@@ -28,6 +41,7 @@ set backspace=indent,eol,start
 set t_Co=256
 " colorscheme, read here: http://vim.wikia.com/wiki/Change_the_color_scheme
 colorscheme morning
+
 autocmd BufWritePre * :%s/\s\+$//e
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -136,3 +150,4 @@ let g:NERDTreeHijackNetrw=0
 nmap <F3> :NERDTreeFocus<CR>
 
 call vundle#end()
+
