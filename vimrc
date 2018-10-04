@@ -1,6 +1,7 @@
 set nocompatible               " be iMproved
 
 " 1 tab to 2 space for ruby
+set clipboard=unnamed
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
@@ -26,7 +27,7 @@ autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 set backspace=indent,eol,start
 set t_Co=256
 " colorscheme, read here: http://vim.wikia.com/wiki/Change_the_color_scheme
-colorscheme molokai
+colorscheme morning
 autocmd BufWritePre * :%s/\s\+$//e
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -48,6 +49,7 @@ if has("gui_running")
 endif
 
 let mapleader= ","
+let g:ackhighlight = 1
 " EasyMotion_leader_key .
 " Plugin Plugin here for Ruby on Rails
 " git
@@ -92,6 +94,7 @@ map <leader>e :NERDTreeToggle<cr>
 map <leader>y "+y<cr>
 map <leader>p "+p<cr>
 nmap <F8> :NERDTreeToggle<CR>
+nmap <c-s> :w<CR>
 
 " coffeescript
 Plugin 'kchmck/vim-coffee-script'
@@ -124,8 +127,10 @@ nmap <F9> :TagbarToggle<CR>
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
-:map <F4> :Ack -i
-" let g:nerdtree_tabs_open_on_gui_startup = 0
+:map <F4> :Ack -i <space>
+:map <F5> :Ack<CR>
+let g:NERDTreeHijackNetrw=0
+
 
 nmap <F3> :NERDTreeFocus<CR>
 
