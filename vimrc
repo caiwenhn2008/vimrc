@@ -40,7 +40,9 @@ autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 set backspace=indent,eol,start
 set t_Co=256
 " colorscheme, read here: http://vim.wikia.com/wiki/Change_the_color_scheme
-colorscheme morning
+"colorscheme morning
+colorscheme molokai
+let g:molokai_original = 1
 
 autocmd BufWritePre * :%s/\s\+$//e
 
