@@ -90,11 +90,12 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/nerdtree'
 " map <silent><F8> :NERDTree<CR>
 map <leader>r :NERDTreeFind<cr>
+
 map <leader>e :NERDTreeToggle<cr>
 map <leader>y "+y<cr>
 map <leader>p "+p<cr>
 nmap <F8> :NERDTreeToggle<CR>
-nmap <c-s> :w<CR>
+
 
 " coffeescript
 Plugin 'kchmck/vim-coffee-script'
