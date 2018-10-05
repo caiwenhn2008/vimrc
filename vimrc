@@ -40,15 +40,16 @@ autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 set backspace=indent,eol,start
 set t_Co=256
 " colorscheme, read here: http://vim.wikia.com/wiki/Change_the_color_scheme
+"colorscheme molokai
 "colorscheme morning
-colorscheme molokai
-let g:molokai_original = 1
+"let g:molokai_original = 1
+
 
 autocmd BufWritePre * :%s/\s\+$//e
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
+Plugin 'morhetz/gruvbox'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-sensible'
 
@@ -144,12 +145,22 @@ nmap <F9> :TagbarToggle<CR>
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
+Plugin 'airblade/vim-gitgutter'
+let g:gitgutter_enabled = 1
+
+
 :map <F4> :Ack -i <space>
 :map <F5> :Ack<CR>
-let g:NERDTreeHijackNetrw=0
 
+let g:NERDTreeHijackNetrw=0
+set guioptions=
 
 nmap <F3> :NERDTreeFocus<CR>
 
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
+
 call vundle#end()
 
+"colorscheme evening
+colorscheme gruvbox
