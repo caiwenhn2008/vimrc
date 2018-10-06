@@ -150,7 +150,7 @@ let g:gitgutter_enabled = 1
 
 
 :map <F4> :Ack -i <space>
-:map <F5> :Ack<CR>
+:map <F2> :Ack<CR>
 
 let g:NERDTreeHijackNetrw=0
 set guioptions=
@@ -159,6 +159,8 @@ nmap <F3> :NERDTreeFocus<CR>
 
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
+
+nnoremap <c-p> :CtrlPClearCache<bar>CtrlP<cr>
 
 call vundle#end()
 
