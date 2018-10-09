@@ -144,7 +144,7 @@ let g:tagbar_auto_faocus =1
 nmap <F9> :TagbarToggle<CR>
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-
+Plugin 'jpo/vim-railscasts-theme'
 Plugin 'airblade/vim-gitgutter'
 let g:gitgutter_enabled = 1
 
@@ -165,4 +165,5 @@ nnoremap <c-p> :CtrlPClearCache<bar>CtrlP<cr>
 call vundle#end()
 
 "colorscheme evening
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme railscasts
