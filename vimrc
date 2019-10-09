@@ -49,6 +49,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'tell-k/vim-autopep8'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'morhetz/gruvbox'
@@ -173,6 +174,8 @@ call vundle#end()
 :map <leader>r :!ruby %<cr>
 nnoremap <leader>a <C-]>
 
+nnoremap <buffer> <F5> :exec '!python' shellescape(@%, 1)<cr>
+
 " Highlight current line
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
@@ -184,4 +187,7 @@ au BufNewFile, BufRead *.py
     \ set expandtab
     \ set autoindent
     \ set fileformat=unix
+set cindent
+autocmd FileType python setlocal foldmethod=indent smartindent shiftwidth=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
+
 set cursorline cursorcolumn
