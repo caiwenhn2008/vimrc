@@ -40,7 +40,7 @@ autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 set backspace=indent,eol,start
 set t_Co=256
 " colorscheme, read here: http://vim.wikia.com/wiki/Change_the_color_scheme
-"colorscheme molokai
+" colorscheme molokai
 "colorscheme morning
 "let g:molokai_original = 1
 
@@ -49,6 +49,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'vim-scripts/indentpython.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-sensible'
@@ -146,6 +148,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'jpo/vim-railscasts-theme'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-ruby/vim-ruby'
 let g:gitgutter_enabled = 1
 
 
@@ -166,4 +169,19 @@ call vundle#end()
 
 "colorscheme evening
 "colorscheme gruvbox
-colorscheme railscasts
+"colorscheme railscasts
+:map <leader>r :!ruby %<cr>
+nnoremap <leader>a <C-]>
+
+" Highlight current line
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+au BufNewFile, BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+set cursorline cursorcolumn
