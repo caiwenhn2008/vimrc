@@ -27,7 +27,7 @@ set noswapfile
 set hidden
 
 " hightlight column and line
-" set cursorline
+set cursorline
 filetype plugin indent on
 syntax on
 
@@ -177,7 +177,7 @@ nnoremap <buffer> <F5> :exec '!python' shellescape(@%, 1)<cr>
 
 " Highlight current line
 au WinLeave * set nocursorline nocursorcolumn
-" au WinEnter * set cursorline cursorcolumn
+au WinEnter * set cursorline nocursorcolumn
 au BufNewFile, BufRead *.py
     \ set tabstop=4
     \ set softtabstop=4
