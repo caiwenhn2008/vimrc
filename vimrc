@@ -28,7 +28,6 @@ set hidden
 
 " hightlight column and line
 set cursorline
-"set cursorcolumn
 filetype plugin indent on
 syntax on
 
@@ -169,7 +168,7 @@ nnoremap <c-p> :CtrlPClearCache<bar>CtrlP<cr>
 call vundle#end()
 
 "colorscheme evening
-"colorscheme gruvbox
+colorscheme gruvbox
 "colorscheme railscasts
 :map <leader>r :!ruby %<cr>
 nnoremap <leader>a <C-]>
@@ -190,4 +189,4 @@ au BufNewFile, BufRead *.py
 set cindent
 autocmd FileType python setlocal foldmethod=indent smartindent shiftwidth=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
 
-set relativenumber2
+set relativenumber
