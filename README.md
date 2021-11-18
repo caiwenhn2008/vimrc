@@ -5,6 +5,8 @@ $ git clone https://github.com/caiwenhn2008/vimrc.git
 
 $ cp vimrc/vimrc ~/.vimrc
 
+$ https://clay-atlas.com/us/blog/2021/09/04/mac-os-en-install-vim-support-python3/
+
 $ vim
   # 输入以下指令
   :PluginInstall( in vim input this command)
