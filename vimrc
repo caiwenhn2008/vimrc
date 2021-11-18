@@ -27,7 +27,7 @@ set noswapfile
 set hidden
 
 " hightlight column and line
-set cursorline
+" set cursorline
 filetype plugin indent on
 syntax on
 
