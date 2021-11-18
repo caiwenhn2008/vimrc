@@ -190,4 +190,4 @@ au BufNewFile, BufRead *.py
 set cindent
 autocmd FileType python setlocal foldmethod=indent smartindent shiftwidth=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
 
-set relativenumber
+set relativenumber2
