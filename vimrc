@@ -173,8 +173,6 @@ colorscheme gruvbox
 :map <leader>r :!ruby %<cr>
 nnoremap <leader>a <C-]>
 
-nnoremap <buffer> <F5> :exec '!python' shellescape(@%, 1)<cr>
-
 " Highlight current line
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline nocursorcolumn
@@ -187,6 +185,13 @@ au BufNewFile, BufRead *.py
     \ set autoindent
     \ set fileformat=unix
 set cindent
+
+autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python setlocal foldmethod=indent smartindent shiftwidth=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
 
-set relativenumber
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+"set relativenumber
