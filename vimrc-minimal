@@ -46,7 +46,7 @@ syntax on
 " number line show
 set nu
 set relativenumber
-set tw=79   " width of document (used by gd)
+set tw=200   " width of document (used by gd)
 set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
 set colorcolumn=80
@@ -194,6 +194,7 @@ let ropevim_enable_shortcuts = 1
 let g:pymode_rope_goto_def_newwin = "vnew"
 let g:pymode_rope_extended_complete = 1
 let g:pymode_breakpoint = 0
+let g:pymode_breakpoint_bind = '<leader>b'
 let g:pymode_syntax = 1
 let g:pymode_syntax_builtin_objs = 0
 let g:pymode_syntax_builtin_funcs = 0
@@ -206,3 +207,5 @@ let g:pymode_run = 1
 let g:pymode_run_bind = '<F5>'
 let g:pymode_lint = 1
 let g:pymode_warnings = 1
+
+autocmd FileType python map <buffer> <F10> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
