@@ -198,7 +198,7 @@ let g:pymode_breakpoint_bind = '<leader>b'
 let g:pymode_syntax = 1
 let g:pymode_syntax_builtin_objs = 0
 let g:pymode_syntax_builtin_funcs = 0
-let g:pymode_options_max_line_length = 79
+let g:pymode_options_max_line_length = 250
 let g:pymode_folding = 0
 map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 let g:pymode_doc = 1
