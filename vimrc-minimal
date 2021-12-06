@@ -205,7 +205,7 @@ let g:pymode_doc = 1
 let g:pymode_doc_bind = 'K'
 let g:pymode_run = 1
 let g:pymode_run_bind = '<F5>'
-let g:pymode_lint = 1
 let g:pymode_warnings = 1
-
+let g:pymode_lint = 1
+let g:pymode_lint_ignore = ["E501", "W",]
 autocmd FileType python map <buffer> <F10> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
