@@ -10,9 +10,9 @@ let mapleader = "."
 noremap <C-n> :nohl<CR>
 vnoremap <C-n> :nohl<CR>
 inoremap <C-n> :nohl<CR>
-noremap <C-Z> :update<CR>
-vnoremap <C-Z> <C-C>:update<CR>
-inoremap <C-Z> <C-O>:update<CR>
+noremap <C-S> :update<CR>
+vnoremap <C-S> <C-C>:update<CR>
+inoremap <C-S> <C-O>:update<CR>
 
 " Quick quit command - not working now
 noremap <Leader>e :quit<CR>  " Quit current window
@@ -207,5 +207,5 @@ let g:pymode_run = 1
 let g:pymode_run_bind = '<F5>'
 let g:pymode_warnings = 1
 let g:pymode_lint = 1
-let g:pymode_lint_ignore = ["E501", "W",]
+let g:pymode_lint_ignore = ["E501", "E101", "W",]
 autocmd FileType python map <buffer> <F10> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
