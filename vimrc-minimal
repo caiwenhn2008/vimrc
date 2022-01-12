@@ -187,6 +187,7 @@ call vundle#end()
 colorscheme gruvbox
 
 "nnoremapG<leader>a <C-]>
+nnoremap <leader>t <c-t>
 
 map <Leader>g :call RopeGotoDefinition()<CR>
 let g:pymode_python = 'python3'
