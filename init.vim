@@ -1,3 +1,4 @@
+"~/.config/nvim/init.vim
 :set clipboard=unnamed
 
 :set number
