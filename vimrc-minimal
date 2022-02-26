@@ -1,5 +1,10 @@
 autocmd! bufwritepost .vimrc source %
 
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 set pastetoggle=<F2>
 set clipboard=unnamed
 
@@ -45,7 +50,9 @@ syntax on
 
 " number line show
 set nu
-" set relativenumber
+set relativenumber
+set showmode
+set showcmd
 set tw=79   " width of document (used by gd)
 set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
@@ -108,6 +115,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 Plugin 'python-mode/python-mode'
