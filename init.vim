@@ -41,7 +41,8 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 call plug#end()
 
-nnoremap <leader>f <cmd>Telescope git_files<cr>
+nnoremap <leader>f <cmd>Telescope find_files<cr>
+nnoremap <leader>g <cmd>Telescope git_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
