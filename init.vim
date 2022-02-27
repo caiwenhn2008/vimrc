@@ -1,4 +1,6 @@
 "~/.config/nvim/init.vim
+"pip3 install autopep 
+
 :set clipboard=unnamed
 
 :set number
