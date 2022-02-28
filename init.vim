@@ -1,5 +1,5 @@
 "~/.config/nvim/init.vim
-"pip3 install autopep 
+"pip3 install autopep
 
 :set clipboard=unnamed
 
@@ -97,6 +97,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'voldikss/vim-floaterm'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -124,3 +125,10 @@ nnoremap <C-H> <C-W><C-H>
 :colorscheme gruvbox
 
 autocmd FileType python map <buffer> <F2> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
+
+nmap <leader>gs :G<CR>
+nmap <leader>gj :diffget //3<CR>
+nmap <leader>gf :diffget //2<CR>
+
+nnoremap <leader>sv :source $MYVIMRC<CR>
