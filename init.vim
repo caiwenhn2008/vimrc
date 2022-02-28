@@ -135,3 +135,5 @@ nmap <leader>gj :diffget //3<CR>
 nmap <leader>gf :diffget //2<CR>
 
 nnoremap <leader>sv :source $MYVIMRC<CR>
+
+map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
