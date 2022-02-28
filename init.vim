@@ -99,6 +99,9 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'voldikss/vim-floaterm'
 Plug 'tpope/vim-fugitive'
 
+Plug 'airblade/vim-gitgutter'
+let g:gitgutter_enabled = 1
+
 call plug#end()
 
 nnoremap <leader>t <cmd>FloatermNew<cr>
