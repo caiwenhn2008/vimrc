@@ -137,3 +137,5 @@ nmap <leader>gf :diffget //2<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+
+nnoremap   <silent>   <F7>    :FloatermNew! --position=topright python3 % <CR>
