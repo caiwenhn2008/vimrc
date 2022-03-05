@@ -128,6 +128,7 @@ nnoremap <C-H> <C-W><C-H>
 :colorscheme gruvbox
 
 autocmd FileType python map <buffer> <F2> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3 -m unittest ' shellescape(@%, 1)<CR>
 
 
 nmap <leader>gs :G<CR>
