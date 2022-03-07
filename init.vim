@@ -103,6 +103,8 @@ Plug 'airblade/vim-gitgutter'
 let g:gitgutter_enabled = 1
 
 Plug 'jiangmiao/auto-pairs'
+let g:AutoPairsFlyMode = 1
+let g:AutoPairsShortcutBackInsert = '<M-b>'
 
 Plug 'mileszs/ack.vim'
 let g:ackprg = 'ag --nogroup --nocolor --column'
