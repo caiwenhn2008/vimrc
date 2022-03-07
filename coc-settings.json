@@ -1,5 +1,5 @@
 {
-  "snippets.userSnippetsDirectory": "/Users/i336871/.config/nvim/snips",
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
   "codeLens.enable": true,
   "java.referencesCodeLens.enabled": true,
   "java.completion.enabled": true,
