@@ -102,7 +102,14 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 let g:gitgutter_enabled = 1
 
+Plug 'jiangmiao/auto-pairs'
+
+Plug 'mileszs/ack.vim'
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
 call plug#end()
+
+:map <F4> :Ack<CR>
 
 nnoremap <leader>t <cmd>FloatermNew<cr>
 
@@ -118,7 +125,7 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
-nmap <F4> :TagbarToggle<CR>
+nmap <F8> :TagbarToggle<CR>
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
