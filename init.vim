@@ -1,6 +1,6 @@
 "~/.config/nvim/init.vim
 "pip3 install autopep
-
+source ~/.config/nvim/coc.vim
 :set clipboard=unnamed
 
 :set number
@@ -10,16 +10,6 @@ let mapleader = ","
 
 map gf :edit <cfile><cr>
 
-" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
-" unicode characters in the file autoload/float.vim
-set encoding=utf-8
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-
 set showmode
 set showcmd
 set tw=79   " width of document (used by gd)
@@ -27,10 +17,6 @@ set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
 "set colorcolumn=200
 highlight ColorColumn ctermbg=233
-
-" easier formatting of paragraphs
-"" vmap Q gq
-"" nmap Q gqap
 
 " Useful settings
 set history=700
@@ -175,6 +161,13 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 " Use <leader>x for convert visual selected code to snippet
 xmap <leader>x  <Plug>(coc-convert-snippet)
 
-nmap <leader>rn <Plug>(coc-rename)
-nmap <leader>ca <Plug>(coc-codeaction)
+" Switch between window splits using big J or K and expand the split to its
+" full size.
+"
+" Move vertically in the window through the horizontal splits...
+map <C-J> <C-w>j<C-w>_
+map <C-K> <C-w>k<C-w>_
 
+" Move horizontally in the window through the vertical splits...
+map <C-H> <C-w>h<C-w>\|
+map <C-L> <C-w>l<C-w>\|
