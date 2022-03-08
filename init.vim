@@ -95,6 +95,9 @@ Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+" <C-x> go to file selection as a split
+" <C-v> go to file selection as a vsplit
+" <C-t> go to a file in a new tab
 
 Plug 'voldikss/vim-floaterm'
 Plug 'tpope/vim-fugitive'
@@ -115,7 +118,7 @@ call plug#end()
 
 nnoremap <leader>t <cmd>FloatermNew<cr>
 
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>f <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope git_files<cr>
 nnoremap <leader>fi <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
