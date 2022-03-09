@@ -74,6 +74,8 @@ Plug 'http://github.com/tpope/vim-surround' " Surrounding ysiw)
 Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc & gcgc
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
+Plug 'vim-airline/vim-airline-themes'
+
 Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -108,6 +110,7 @@ let g:dashboard_default_executive ='telescope'
 
 call plug#end()
 
+let g:airline_theme='simple'
 :map <F4> :Ack<CR>
 
 nnoremap <leader>t <cmd>FloatermNew<cr>
