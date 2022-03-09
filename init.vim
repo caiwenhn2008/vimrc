@@ -98,6 +98,14 @@ let g:AutoPairsShortcutBackInsert = '<M-b>'
 Plug 'mileszs/ack.vim'
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
+Plug 'justinmk/vim-sneak'
+
+Plug '907th/vim-auto-save'
+let g:auto_save = 1  " enable AutoSave on Vim startup
+
+Plug 'glepnir/dashboard-nvim'
+let g:dashboard_default_executive ='telescope'
+
 call plug#end()
 
 :map <F4> :Ack<CR>
