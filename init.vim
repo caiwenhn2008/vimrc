@@ -108,6 +108,8 @@ let g:auto_save = 1  " enable AutoSave on Vim startup
 Plug 'glepnir/dashboard-nvim'
 let g:dashboard_default_executive ='telescope'
 
+Plug 'christoomey/vim-tmux-navigator'
+
 call plug#end()
 
 let g:airline_theme='simple'
