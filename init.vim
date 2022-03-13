@@ -186,3 +186,5 @@ xmap <leader>x  <Plug>(coc-convert-snippet)
 " Move horizontally in the window through the vertical splits...
 " map <C-H> <C-w>h<C-w>\|
 " map <C-L> <C-w>l<C-w>\|
+"
+nmap <leader>ca  <Plug>(coc-codeaction)
