@@ -110,6 +110,8 @@ let g:dashboard_default_executive ='telescope'
 
 Plug 'christoomey/vim-tmux-navigator'
 
+Plug 'honza/vim-snippets'
+
 call plug#end()
 
 let g:airline_theme='simple'
