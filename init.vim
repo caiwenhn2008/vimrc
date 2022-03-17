@@ -10,7 +10,10 @@ let mapleader = ","
 
 map gf :edit <cfile><cr>
 
-set cmdheight=1
+noremap ; :
+noremap Q :q<CR>
+" noremap <C-q> :qa<CR>
+noremap S :w<CR>
 
 set showmode
 set showcmd
