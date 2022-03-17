@@ -3,14 +3,15 @@
   "codeLens.enable": true,
   "java.referencesCodeLens.enabled": true,
   "java.completion.enabled": true,
+  "yaml.schemas": { "kubernetes": "/*.yaml" },
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "markdown",
     "javascript",
     "graphql",
     "html",
-    "yaml",
     "json",
+    "yaml",
     "python",
     "java"
   ]
