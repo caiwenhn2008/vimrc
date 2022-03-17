@@ -10,6 +10,8 @@ let mapleader = ","
 
 map gf :edit <cfile><cr>
 
+set cmdheight=1
+
 set showmode
 set showcmd
 set tw=79   " width of document (used by gd)
