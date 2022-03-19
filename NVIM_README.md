@@ -1,10 +1,11 @@
 # theme
 
-Item theme: https://raw.githubusercontent.com/herrbischoff/iterm2-gruvbox/master/gruvbox.itermcolors
+Item theme: <https://raw.githubusercontent.com/herrbischoff/iterm2-gruvbox/master/gruvbox.itermcolors>
 
-#vim basics
-https://coolshell.cn/articles/5426.html
-https://coolshell.cn/articles/11312.html
+# vim basics
+
+<https://coolshell.cn/articles/5426.html>
+<https://coolshell.cn/articles/11312.html>
 
 # Install tools
 
@@ -50,7 +51,7 @@ CocInstall coc-json coc-tsserver coc-vimlsp coc-prettier coc-markdownlint coc-ac
 
 # python workflow
 
-https://github.com/fannheyward/coc-pyright
+<https://github.com/fannheyward/coc-pyright>
 
 - create venv in project: python3 -m venv .venv
 - source .venv/bin/activate
@@ -61,14 +62,14 @@ https://github.com/fannheyward/coc-pyright
 
 [on my tmux setup](https://github.com/gpakosz/.tmux)
 
-https://github.com/gpakosz/.tmux
+<https://github.com/gpakosz/.tmux>
 
 Restore
-https://zhuanlan.zhihu.com/p/259640277
+<https://zhuanlan.zhihu.com/p/259640277>
 
 Plugins
 
-prefix + Ctrl-s - save; prefix + Ctrl-r - restore. https://github.com/tmux-plugins/tmux-resurrect
+prefix + Ctrl-s - save; prefix + Ctrl-r - restore. <https://github.com/tmux-plugins/tmux-resurrect>
 
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
@@ -99,12 +100,12 @@ nmap <leader>gs :G<CR>
 nmap <leader>gj :diffget //3<CR>
 nmap <leader>gf :diffget //2<CR>
 
-#debug
+# debug
 
-- https://github.com/mfussenegger/nvim-dap-python
+- <https://github.com/mfussenegger/nvim-dap-python>
 - Neovim Plugin: nvim-dap
 
 # k8s yaml support
 
-https://github.com/redhat-developer/yaml-language-server
+<https://github.com/redhat-developer/yaml-language-server>
 Vim Kubernetes YAML Support
