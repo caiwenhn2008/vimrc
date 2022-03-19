@@ -5,7 +5,7 @@ source ~/.config/nvim/coc.vim
 
 :set number
 :set relativenumber
-
+set mouse=a
 let mapleader = ","
 
 map gf :edit <cfile><cr>
@@ -195,3 +195,6 @@ xmap <leader>x  <Plug>(coc-convert-snippet)
 " map <C-L> <C-w>l<C-w>\|
 "
 nmap <leader>ca  <Plug>(coc-codeaction)
+
+nnoremap   <silent>   <F12>   :FloatermToggle<CR>
+tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
