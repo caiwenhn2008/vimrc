@@ -119,6 +119,9 @@ Plug 'honza/vim-snippets'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 let g:airline_theme='simple'
@@ -151,6 +154,7 @@ autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%,
 autocmd FileType python map <buffer> <F6> :w<CR>:exec '!python3 -m unittest ' shellescape(@%, 1)<CR>
 
 autocmd FileType * map <buffer> <F2> :w<CR>:exec '!gradle run '<CR>
+autocmd FileType * map <buffer> <F3> :w<CR>:exec '!./gradlew test'<CR>
 
 nmap <leader>1 :CocFix<CR>
 
@@ -201,3 +205,12 @@ nnoremap   <silent>   <F12>   :FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 nnoremap   <silent>   <F10>   :FloatermNew lazygit<CR>
 tnoremap   <silent>   <F10>   <C-\><C-n>:FloatermNew lazygit<CR>
+
+
+nnoremap <silent> <leader>o :Files<R>
+nnoremap <silent> <leader>O :Files /<CR>
+nnoremap <silent> <leader>b  :Buffers<CR>
+nnoremap <silent> <leader>gl :BLines<CR>
+nnoremap <silent> <leader>`  :Marks<CR>
+nnoremap <silent> <leader>; :Commands<CR>
+nnoremap <silent> <F1> :Helptags<CR>
