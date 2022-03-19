@@ -129,7 +129,7 @@ let g:airline_theme='simple'
 
 nnoremap <leader>t <cmd>FloatermNew<cr>
 
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>f <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope git_files<cr>
 nnoremap <leader>fi <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
@@ -204,13 +204,16 @@ nmap <leader>ca  <Plug>(coc-codeaction)
 nnoremap   <silent>   <F12>   :FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 nnoremap   <silent>   <F10>   :FloatermNew lazygit<CR>
+nnoremap   <silent>   <leader>g  :FloatermNew lazygit<CR>
 tnoremap   <silent>   <F10>   <C-\><C-n>:FloatermNew lazygit<CR>
 
 
-nnoremap <silent> <leader>o :Files<R>
-nnoremap <silent> <leader>O :Files /<CR>
+nnoremap <silent> <leader>ff :Files<CR>
+nnoremap <silent> <leader>o :Files /<CR>
+nnoremap <silent> <leader>s :Rg<CR>
 nnoremap <silent> <leader>b  :Buffers<CR>
 nnoremap <silent> <leader>gl :BLines<CR>
 nnoremap <silent> <leader>`  :Marks<CR>
 nnoremap <silent> <leader>; :Commands<CR>
 nnoremap <silent> <F1> :Helptags<CR>
+
