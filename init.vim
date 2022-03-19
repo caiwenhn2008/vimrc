@@ -138,7 +138,7 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
-nmap <F8> :TagbarToggle<CR>
+nmap <F9> :TagbarToggle<CR>
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -148,9 +148,9 @@ nnoremap <C-H> <C-W><C-H>
 :colorscheme gruvbox
 
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
-autocmd FileType python map <buffer> <F2> :w<CR>:exec '!python3 -m unittest ' shellescape(@%, 1)<CR>
+autocmd FileType python map <buffer> <F6> :w<CR>:exec '!python3 -m unittest ' shellescape(@%, 1)<CR>
 
-autocmd FileType * map <buffer> <F6> :w<CR>:exec '!gradle run '<CR>
+autocmd FileType * map <buffer> <F2> :w<CR>:exec '!gradle run '<CR>
 
 nmap <leader>1 :CocFix<CR>
 
@@ -163,6 +163,7 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
 nnoremap   <silent>   <F7>    :FloatermNew! --position=topright python3 % <CR>
+nnoremap   <silent>   <F8>    :FloatermNew! --position=topright ipython <CR>
 
 
 " Use <C-l> for trigger snippet expand.
@@ -198,3 +199,5 @@ nmap <leader>ca  <Plug>(coc-codeaction)
 
 nnoremap   <silent>   <F12>   :FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
+nnoremap   <silent>   <F10>   :FloatermNew lazygit<CR>
+tnoremap   <silent>   <F10>   <C-\><C-n>:FloatermNew lazygit<CR>
