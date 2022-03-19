@@ -9,3 +9,7 @@
 - pip3 install autopep8
 - pip3 install wheel
 - python3 -m pip install --user --upgrade pynvim
+
+# on my tmux
+
+[on my tmux setup](https://github.com/gpakosz/.tmux)
