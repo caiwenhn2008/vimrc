@@ -13,6 +13,10 @@ On a mac you can install one via, eg:
 - brew install --cask font-victor-mono-nerd-font
 - brew install --cask font-hack-nerd-font
 
+# coc extensions
+
+CocInstall coc-json coc-tsserver coc-vimlsp coc-prettier coc-markdownlint coc-actions coc-yaml coc-xml coc-snippets coc-pyright coc-json coc-java
+
 # python support
 
 - pip3 install autopep8
