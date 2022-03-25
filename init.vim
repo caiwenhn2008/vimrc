@@ -132,6 +132,7 @@ Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 call plug#end()
 
 nnoremap <silent> <leader> :WhichKey ','<CR>
+vnoremap <silent> <leader> :WhichKeyVisual ','<CR>
 
 let g:airline_theme='simple'
 :map <F4> :Ack<CR>
