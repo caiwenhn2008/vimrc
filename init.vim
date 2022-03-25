@@ -131,11 +131,7 @@ Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 
 call plug#end()
 
-let g:mapleader = "\<Space>"
-let g:maplocalleader = ','
-nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
-
+nnoremap <silent> <leader> :WhichKey ','<CR>
 
 let g:airline_theme='simple'
 :map <F4> :Ack<CR>
