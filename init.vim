@@ -1,12 +1,15 @@
 "~/.config/nvim/init.vim
 "pip3 install autopep
+let mapleader = ","
+
 source ~/.config/nvim/coc.vim
+source ~/.config/nvim/which_key.vim
+
 :set clipboard=unnamed
 
 :set number
 :set relativenumber
 set mouse=a
-let mapleader = ","
 
 map gf :edit <cfile><cr>
 
@@ -126,13 +129,16 @@ Plug 'ap/vim-buftabline'
 Plug 'liuchengxu/vim-which-key'
 " On-demand lazy load
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+autocmd! User vim-which-key call which_key#register(',', 'g:which_key_map')
 
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 
+Plug 'puremourning/vimspector'
 call plug#end()
 
-nnoremap <silent> <leader> :WhichKey ','<CR>
-vnoremap <silent> <leader> :WhichKeyVisual ','<CR>
+
+" let g:vimspector_enable_mappings = 'HUMAN'
+
 
 let g:airline_theme='simple'
 :map <F4> :Ack<CR>
@@ -176,6 +182,7 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 
 map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
+" python run config
 nnoremap   <silent>   <F7>    :FloatermNew! --position=topright python3 % <CR>
 nnoremap   <silent>   <F8>    :FloatermNew! --position=topright ipython <CR>
 
@@ -198,17 +205,6 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 " Use <leader>x for convert visual selected code to snippet
 xmap <leader>x  <Plug>(coc-convert-snippet)
 
-" Switch between window splits using big J or K and expand the split to its
-" full size.
-"
-" Move vertically in the window through the horizontal splits...
-" map <C-J> <C-w>j<C-w>_
-" map <C-K> <C-w>k<C-w>_
-
-" Move horizontally in the window through the vertical splits...
-" map <C-H> <C-w>h<C-w>\|
-" map <C-L> <C-w>l<C-w>\|
-"
 nmap <leader>ca  <Plug>(coc-codeaction)
 
 nnoremap   <silent>   <F12>   :FloatermToggle<CR>
@@ -217,7 +213,7 @@ nnoremap   <silent>   <F10>   :FloatermNew lazygit<CR>
 nnoremap   <silent>   <leader>g  :FloatermNew lazygit<CR>
 tnoremap   <silent>   <F10>   <C-\><C-n>:FloatermNew lazygit<CR>
 
-
+"fzf
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <silent> <leader>o :Files /<CR>
 nnoremap <silent> <leader>s :Rg<CR>
