@@ -134,6 +134,8 @@ autocmd! User vim-which-key call which_key#register(',', 'g:which_key_map')
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 
 Plug 'puremourning/vimspector'
+
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 
@@ -152,9 +154,9 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " nmap <F3> :NERDTreeFind<CR>
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+"nnoremap <leader>n :NERDTreeFocus<CR>
+"nnoremap <C-n> :NERDTree<CR>
+"nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 nmap <F9> :TagbarToggle<CR>
@@ -165,6 +167,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 :colorscheme gruvbox
+" :colorscheme onehalfdark
 
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python map <buffer> <F6> :w<CR>:exec '!python3 -m unittest ' shellescape(@%, 1)<CR>
@@ -210,7 +213,7 @@ nmap <leader>ca  <Plug>(coc-codeaction)
 nnoremap   <silent>   <F12>   :FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 nnoremap   <silent>   <F10>   :FloatermNew lazygit<CR>
-nnoremap   <silent>   <leader>g  :FloatermNew lazygit<CR>
+nnoremap   <silent>   <leader>g  :FloatermNew --height=0.99 --width=0.99 lazygit<CR>
 tnoremap   <silent>   <F10>   <C-\><C-n>:FloatermNew lazygit<CR>
 
 "fzf
