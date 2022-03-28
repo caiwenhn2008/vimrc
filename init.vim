@@ -154,9 +154,9 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " nmap <F3> :NERDTreeFind<CR>
-"nnoremap <leader>n :NERDTreeFocus<CR>
-"nnoremap <C-n> :NERDTree<CR>
-"nnoremap <C-t> :NERDTreeToggle<CR>
+" nnoremap <leader>n :NERDTreeFocus<CR>
+" nnoremap <C-n> :NERDTree<CR>
+" nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 nmap <F9> :TagbarToggle<CR>
