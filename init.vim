@@ -26,7 +26,7 @@ set fo-=t   " don't automatically wrap text when typing
 "set colorcolumn=200
 highlight ColorColumn ctermbg=233
 
-" Useful settings
+" Useful  2 settings
 set history=700
 set undolevels=700
 
@@ -154,9 +154,9 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " nmap <F3> :NERDTreeFind<CR>
-" nnoremap <leader>n :NERDTreeFocus<CR>
-" nnoremap <C-n> :NERDTree<CR>
-" nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 nmap <F9> :TagbarToggle<CR>
@@ -226,3 +226,10 @@ nnoremap <silent> <leader>`  :Marks<CR>
 nnoremap <silent> <leader>; :Commands<CR>
 nnoremap <silent> <F1> :Helptags<CR>
 
+" for normal mode - the word under the cursor
+nmap <Leader>di <Plug>VimspectorBalloonEval
+" for visual mode, the visually selected text
+xmap <Leader>di <Plug>VimspectorBalloonEval
+nnoremap <silent><nowait> <leader>ds :<C-u>VimspectorShowOutput<cr>
+nnoremap <silent><nowait> <leader>de :<C-u>VimspectorReset<cr>
+nnoremap <silent><nowait> <leader>dj :<C-u>CocCommand java.debug.vimspector.start<cr>
