@@ -213,7 +213,7 @@ nmap <leader>ca  <Plug>(coc-codeaction)
 nnoremap   <silent>   <F12>   :FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 nnoremap   <silent>   <F10>   :FloatermNew lazygit<CR>
-nnoremap   <silent>   <leader>g  :FloatermNew --height=0.99 --width=0.99 lazygit<CR>
+nnoremap   <silent>   <leader>gi  :FloatermNew --height=0.99 --width=0.99 lazygit<CR>
 tnoremap   <silent>   <F10>   <C-\><C-n>:FloatermNew lazygit<CR>
 
 "fzf
