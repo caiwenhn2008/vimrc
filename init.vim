@@ -88,8 +88,8 @@ Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
 " <C-x> go to file selection as a split
 " <C-v> go to file selection as a vsplit
 " <C-t> go to a file in a new tab
@@ -104,8 +104,8 @@ Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsFlyMode = 1
 let g:AutoPairsShortcutBackInsert = '<M-b>'
 
-Plug 'mileszs/ack.vim'
-let g:ackprg = 'ag --nogroup --nocolor --column'
+" Plug 'mileszs/ack.vim'
+" let g:ackprg = 'ag --nogroup --nocolor --column'
 
 Plug 'justinmk/vim-sneak'
 
@@ -113,7 +113,7 @@ Plug '907th/vim-auto-save'
 let g:auto_save = 1  " enable AutoSave on Vim startup
 
 Plug 'glepnir/dashboard-nvim'
-let g:dashboard_default_executive ='telescope'
+let g:dashboard_default_executive ='fzf'
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -143,15 +143,15 @@ call plug#end()
 
 
 let g:airline_theme='simple'
-:map <F4> :Ack<CR>
+" :map <F4> :Ack<CR>
 
 nnoremap <leader>t <cmd>FloatermNew<cr>
 
-nnoremap <leader>f <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope git_files<cr>
-nnoremap <leader>fi <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+" nnoremap <leader>f <cmd>Telescope find_files<cr>
+" nnoremap <leader>fg <cmd>Telescope git_files<cr>
+" nnoremap <leader>fi <cmd>Telescope live_grep<cr>
+" nnoremap <leader>fb <cmd>Telescope buffers<cr>
+" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " nmap <F3> :NERDTreeFind<CR>
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -218,12 +218,12 @@ tnoremap   <silent>   <F10>   <C-\><C-n>:FloatermNew lazygit<CR>
 
 "fzf
 nnoremap <silent> <leader>ff :Files<CR>
-nnoremap <silent> <leader>o :Files /<CR>
-nnoremap <silent> <leader>s :Rg<CR>
-nnoremap <silent> <leader>b  :Buffers<CR>
-nnoremap <silent> <leader>gl :BLines<CR>
-nnoremap <silent> <leader>`  :Marks<CR>
-nnoremap <silent> <leader>; :Commands<CR>
+nnoremap <silent> <leader>fo :Files /<CR>
+nnoremap <silent> <leader>fs :Rg<CR>
+nnoremap <silent> <leader>fb  :Buffers<CR>
+nnoremap <silent> <leader>fl :BLines<CR>
+nnoremap <silent> <leader>fm  :Marks<CR>
+nnoremap <silent> <leader>fc :Commands<CR>
 nnoremap <silent> <F1> :Helptags<CR>
 
 " for normal mode - the word under the cursor
@@ -233,3 +233,5 @@ xmap <Leader>di <Plug>VimspectorBalloonEval
 nnoremap <silent><nowait> <leader>ds :<C-u>VimspectorShowOutput<cr>
 nnoremap <silent><nowait> <leader>de :<C-u>VimspectorReset<cr>
 nnoremap <silent><nowait> <leader>dj :<C-u>CocCommand java.debug.vimspector.start<cr>
+
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
