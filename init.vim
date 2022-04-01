@@ -1,6 +1,6 @@
 "~/.config/nvim/init.vim
 "pip3 install autopep
-let mapleader = ","
+let mapleader = " "
 
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/which_key.vim
