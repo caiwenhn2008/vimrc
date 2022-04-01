@@ -26,7 +26,7 @@ let g:which_key_map['v'] = [ '<C-W>v'                                          ,
 
 
 " a is for actions
-let g:which_key_map.R = {
+let g:which_key_map.r = {
       \ 'name' : '+actions' ,
       \ 'c' : [':ColorizerToggle'        , 'colorizer'],
       \ 'e' : [':CocCommand explorer'    , 'explorer'],
@@ -45,7 +45,7 @@ let g:which_key_map.R = {
       \ }
 
 " m is for mark
-let g:which_key_map.M = {
+let g:which_key_map.m = {
       \ 'name' : '+mark' ,
       \ 'c' : [':CocCommand bookmark.clearForCurrentFile', 'clear file'],
       \ 'C' : [':CocCommand bookmark.clearForAllFiles', 'clear project'],
@@ -76,7 +76,7 @@ let g:which_key_map.d = {
 
 
 " b is for buffer
-let g:which_key_map.B = {
+let g:which_key_map.b = {
       \ 'name' : '+buffer' ,
       \ '>' : [':BufferMoveNext'        , 'move next'],
       \ '<' : [':BufferMovePrevious'    , 'move prev'],
@@ -102,7 +102,7 @@ let g:which_key_map.B = {
       \ }
 
 " s is for search
-let g:which_key_map.S = {
+let g:which_key_map.s = {
       \ 'name' : '+search' ,
       \ '/' : [':History/'              , 'history'],
       \ ';' : [':FzfPreviewCommandPalette'              , 'commands'],
@@ -133,7 +133,7 @@ let g:which_key_map.S = {
       \ }
 
 " g is for git
-let g:which_key_map.G = {
+let g:which_key_map.g = {
       \ 'name' : '+git' ,
       \ 'a' : [':Git add .'                        , 'add all'],
       \ 'A' : [':CocCommand fzf-preview.GitStatus' , 'actions'],
@@ -166,7 +166,7 @@ let g:which_key_map.G = {
 
 
 " t is for terminal
-let g:which_key_map.T = {
+let g:which_key_map.t = {
       \ 'name' : '+terminal' ,
       \ ';' : [':FloatermNew --wintype=normal --height=6'        , 'terminal'],
       \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
@@ -183,7 +183,7 @@ let g:which_key_map.T = {
       \ }
 
 " l is for language server protocol
-let g:which_key_map.L = {
+let g:which_key_map.l = {
       \ 'name' : '+lsp' ,
       \ '.' : [':CocConfig'                          , 'config'],
       \ ';' : ['<Plug>(coc-refactor)'                , 'refactor'],
