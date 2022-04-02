@@ -192,7 +192,7 @@ nmap <leader>gf :diffget //2<CR>
 
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
-map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+map <Leader>1 Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
 " python run config
 nnoremap   <silent>   <F7>    :FloatermNew! --position=topright python3 % <CR>
@@ -221,15 +221,15 @@ nmap <leader>ca  <Plug>(coc-codeaction)
 
 nnoremap   <silent>   <F12>   :FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
-nnoremap   <silent>   <F10>   :FloatermNew lazygit<CR>
-nnoremap   <silent>   <leader>gi  :FloatermNew --height=0.99 --width=0.99 lazygit<CR>
+nnoremap   <silent>   <leader>i  :FloatermNew --height=0.99 --width=0.99 lazygit<CR>
 tnoremap   <silent>   <F10>   <C-\><C-n>:FloatermNew lazygit<CR>
 
 "fzf
-nnoremap <silent> <leader>ff :Files<CR>
-nnoremap <silent> <leader>fs :Rg<CR>
+nnoremap <silent> <leader>o :Files<CR>
+nnoremap <silent> <leader>t :Rg<CR>
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 nnoremap <silent> <leader>fh :History<CR>
-nnoremap <silent> <leader>fb :Buffers<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>fl :BLines<CR>
 nnoremap <silent> <leader>fm :Marks<CR>
 nnoremap <silent> <leader>fc :Commands<CR>
@@ -243,4 +243,3 @@ nnoremap <silent><nowait> <leader>ds :<C-u>VimspectorShowOutput<cr>
 nnoremap <silent><nowait> <leader>de :<C-u>VimspectorReset<cr>
 nnoremap <silent><nowait> <leader>dj :<C-u>CocCommand java.debug.vimspector.start<cr>
 
-nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
