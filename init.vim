@@ -140,8 +140,6 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 autocmd! User vim-which-key call which_key#register(',', 'g:which_key_map')
 
-Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
-
 Plug 'puremourning/vimspector'
 
 Plug 'sheerun/vim-polyglot'
@@ -168,7 +166,7 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
-nmap <F9> :TagbarToggle<CR>
+nmap <F9> :CocOutline<CR>
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
