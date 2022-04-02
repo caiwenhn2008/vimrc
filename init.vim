@@ -2,6 +2,16 @@
 "pip3 install autopep
 let mapleader = " "
 
+" set foldmethod=syntax
+" set foldenable
+" set foldlevel=0
+" set foldnestmax=10
+" syn region foldImports start=/\(\n\?import.\+;\n\)\+/ end=+^\s*$+ transparent fold keepend
+" autocmd FileType java :set fmr=/**,*/ fdm=marker fdc=1
+" syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+" syn region foldJavadoc start=+/\*+ end=+\*/+ transparent fold keepend extend
+
+
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/which_key.vim
 
@@ -74,7 +84,6 @@ autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
 
 autocmd BufWritePre * :%s/\s\+$//e
-
 
 call plug#begin(stdpath('data') . 'vimplug')
 
@@ -218,11 +227,11 @@ tnoremap   <silent>   <F10>   <C-\><C-n>:FloatermNew lazygit<CR>
 
 "fzf
 nnoremap <silent> <leader>ff :Files<CR>
-nnoremap <silent> <leader>fo :Files /<CR>
 nnoremap <silent> <leader>fs :Rg<CR>
-nnoremap <silent> <leader>fb  :Buffers<CR>
+nnoremap <silent> <leader>fh :History<CR>
+nnoremap <silent> <leader>fb :Buffers<CR>
 nnoremap <silent> <leader>fl :BLines<CR>
-nnoremap <silent> <leader>fm  :Marks<CR>
+nnoremap <silent> <leader>fm :Marks<CR>
 nnoremap <silent> <leader>fc :Commands<CR>
 nnoremap <silent> <F1> :Helptags<CR>
 
