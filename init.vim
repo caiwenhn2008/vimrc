@@ -1,6 +1,16 @@
 "~/.config/nvim/init.vim
 "pip3 install autopep
-let mapleader = ","
+let mapleader = " "
+
+" set foldmethod=syntax
+" set foldenable
+" set foldlevel=0
+" set foldnestmax=10
+" syn region foldImports start=/\(\n\?import.\+;\n\)\+/ end=+^\s*$+ transparent fold keepend
+" autocmd FileType java :set fmr=/**,*/ fdm=marker fdc=1
+" syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+" syn region foldJavadoc start=+/\*+ end=+\*/+ transparent fold keepend extend
+
 
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/which_key.vim
@@ -26,7 +36,7 @@ set fo-=t   " don't automatically wrap text when typing
 "set colorcolumn=200
 highlight ColorColumn ctermbg=233
 
-" Useful settings
+" Useful  2 settings
 set history=700
 set undolevels=700
 
@@ -75,7 +85,6 @@ autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
 autocmd BufWritePre * :%s/\s\+$//e
 
-
 call plug#begin(stdpath('data') . 'vimplug')
 
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysiw)
@@ -88,8 +97,8 @@ Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
 " <C-x> go to file selection as a split
 " <C-v> go to file selection as a vsplit
 " <C-t> go to a file in a new tab
@@ -104,8 +113,8 @@ Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsFlyMode = 1
 let g:AutoPairsShortcutBackInsert = '<M-b>'
 
-Plug 'mileszs/ack.vim'
-let g:ackprg = 'ag --nogroup --nocolor --column'
+" Plug 'mileszs/ack.vim'
+" let g:ackprg = 'ag --nogroup --nocolor --column'
 
 Plug 'justinmk/vim-sneak'
 
@@ -113,7 +122,7 @@ Plug '907th/vim-auto-save'
 let g:auto_save = 1  " enable AutoSave on Vim startup
 
 Plug 'glepnir/dashboard-nvim'
-let g:dashboard_default_executive ='telescope'
+let g:dashboard_default_executive ='fzf'
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -131,8 +140,6 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 autocmd! User vim-which-key call which_key#register(',', 'g:which_key_map')
 
-Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
-
 Plug 'puremourning/vimspector'
 
 Plug 'sheerun/vim-polyglot'
@@ -143,23 +150,23 @@ call plug#end()
 
 
 let g:airline_theme='simple'
-:map <F4> :Ack<CR>
+" :map <F4> :Ack<CR>
 
 nnoremap <leader>t <cmd>FloatermNew<cr>
 
-nnoremap <leader>f <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope git_files<cr>
-nnoremap <leader>fi <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+" nnoremap <leader>f <cmd>Telescope find_files<cr>
+" nnoremap <leader>fg <cmd>Telescope git_files<cr>
+" nnoremap <leader>fi <cmd>Telescope live_grep<cr>
+" nnoremap <leader>fb <cmd>Telescope buffers<cr>
+" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " nmap <F3> :NERDTreeFind<CR>
-" nnoremap <leader>n :NERDTreeFocus<CR>
-" nnoremap <C-n> :NERDTree<CR>
-" nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
-nmap <F9> :TagbarToggle<CR>
+nmap <F9> :CocOutline<CR>
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -183,7 +190,7 @@ nmap <leader>gf :diffget //2<CR>
 
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
-map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+map <Leader>1 Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
 " python run config
 nnoremap   <silent>   <F7>    :FloatermNew! --position=topright python3 % <CR>
@@ -212,17 +219,25 @@ nmap <leader>ca  <Plug>(coc-codeaction)
 
 nnoremap   <silent>   <F12>   :FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
-nnoremap   <silent>   <F10>   :FloatermNew lazygit<CR>
-nnoremap   <silent>   <leader>g  :FloatermNew --height=0.99 --width=0.99 lazygit<CR>
+nnoremap   <silent>   <leader>i  :FloatermNew --height=0.99 --width=0.99 lazygit<CR>
 tnoremap   <silent>   <F10>   <C-\><C-n>:FloatermNew lazygit<CR>
 
 "fzf
-nnoremap <silent> <leader>ff :Files<CR>
-nnoremap <silent> <leader>o :Files /<CR>
-nnoremap <silent> <leader>s :Rg<CR>
-nnoremap <silent> <leader>b  :Buffers<CR>
-nnoremap <silent> <leader>gl :BLines<CR>
-nnoremap <silent> <leader>`  :Marks<CR>
-nnoremap <silent> <leader>; :Commands<CR>
+nnoremap <silent> <leader>o :Files<CR>
+nnoremap <silent> <leader>t :Rg<CR>
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
+nnoremap <silent> <leader>fh :History<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>fl :BLines<CR>
+nnoremap <silent> <leader>fm :Marks<CR>
+nnoremap <silent> <leader>fc :Commands<CR>
 nnoremap <silent> <F1> :Helptags<CR>
+
+" for normal mode - the word under the cursor
+nmap <Leader>di <Plug>VimspectorBalloonEval
+" for visual mode, the visually selected text
+xmap <Leader>di <Plug>VimspectorBalloonEval
+nnoremap <silent><nowait> <leader>ds :<C-u>VimspectorShowOutput<cr>
+nnoremap <silent><nowait> <leader>de :<C-u>VimspectorReset<cr>
+nnoremap <silent><nowait> <leader>dj :<C-u>CocCommand java.debug.vimspector.start<cr>
 
