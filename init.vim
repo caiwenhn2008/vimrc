@@ -67,7 +67,7 @@ set expandtab
 set hidden
 
 " hightlight column and line
-" set cursorline
+set cursorline
 " set cursorcolumn
 " Highlight current line
 au BufNewFile, BufRead *.py
