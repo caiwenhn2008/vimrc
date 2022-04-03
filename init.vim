@@ -132,6 +132,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'antoinemadec/coc-fzf'
 
 Plug 'ap/vim-buftabline'
 
@@ -223,7 +224,8 @@ nnoremap   <silent>   <leader>i  :FloatermNew --height=0.99 --width=0.99 lazygit
 tnoremap   <silent>   <F10>   <C-\><C-n>:FloatermNew lazygit<CR>
 
 "fzf
-nnoremap <silent> <leader>o :Files<CR>
+nnoremap <silent> <leader>ff :Files<CR>
+nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>t :Rg<CR>
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 nnoremap <silent> <leader>fh :History<CR>
@@ -241,3 +243,17 @@ nnoremap <silent><nowait> <leader>ds :<C-u>VimspectorShowOutput<cr>
 nnoremap <silent><nowait> <leader>de :<C-u>VimspectorReset<cr>
 nnoremap <silent><nowait> <leader>dj :<C-u>CocCommand java.debug.vimspector.start<cr>
 
+let g:coc_fzf_preview = 'down:50%'
+let g:coc_fzf_opts=['--layout=reverse']
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
+" let g:coc_fzf_preview_fullscreen=1
+" mappings
+nnoremap <silent> <space><space> :<C-u>CocFzfList<CR>
+nnoremap <silent> <space>a       :<C-u>CocFzfList diagnostics<CR>
+nnoremap <silent> <space>aa       :<C-u>CocFzfList diagnostics --current-buf<CR>
+nnoremap <silent> <space>c       :<C-u>CocFzfList commands<CR>
+nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
+nnoremap <silent> <space>l       :<C-u>CocFzfList location<CR>
+nnoremap <silent> <space>o       :<C-u>CocFzfList outline<CR>
+nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
+nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
