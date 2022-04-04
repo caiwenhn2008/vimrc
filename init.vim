@@ -15,6 +15,7 @@ let mapleader = " "
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/which_key.vim
 
+nnoremap <leader>sv :source $MYVIMRC<CR>
 :set clipboard=unnamed
 
 :set number
@@ -98,11 +99,12 @@ Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Plug 'nvim-lua/plenary.nvim'
-" Plug 'nvim-telescope/telescope.nvim'
-" <C-x> go to file selection as a split
-" <C-v> go to file selection as a vsplit
-" <C-t> go to a file in a new tab
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'aloussase/telescope-gradle.nvim'
+Plug 'dhruvmanila/telescope-bookmarks.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'fannheyward/telescope-coc.nvim'
 
 Plug 'voldikss/vim-floaterm'
 Plug 'tpope/vim-fugitive'
@@ -113,9 +115,6 @@ let g:gitgutter_enabled = 1
 Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsFlyMode = 1
 let g:AutoPairsShortcutBackInsert = '<M-b>'
-
-" Plug 'mileszs/ack.vim'
-" let g:ackprg = 'ag --nogroup --nocolor --column'
 
 Plug 'justinmk/vim-sneak'
 
@@ -147,32 +146,13 @@ Plug 'puremourning/vimspector'
 Plug 'sheerun/vim-polyglot'
 call plug#end()
 
-
-" let g:vimspector_enable_mappings = 'HUMAN'
-
-
 let g:airline_theme='simple'
-" :map <F4> :Ack<CR>
 
-nnoremap <leader>t <cmd>FloatermNew<cr>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
-" nnoremap <leader>f <cmd>Telescope find_files<cr>
-" nnoremap <leader>fg <cmd>Telescope git_files<cr>
-" nnoremap <leader>fi <cmd>Telescope live_grep<cr>
-" nnoremap <leader>fb <cmd>Telescope buffers<cr>
-" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-
-" lua << EOF
-" require('telescope').load_extension('coc')
-" EOF
-" nmap <F3> :NERDTreeFind<CR>
-nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
-nmap <F9> :CocOutline<CR>
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -182,19 +162,15 @@ nnoremap <C-H> <C-W><C-H>
 :colorscheme gruvbox
 " :colorscheme onehalfdark
 
-autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
-autocmd FileType python map <buffer> <F6> :w<CR>:exec '!python3 -m unittest ' shellescape(@%, 1)<CR>
-
 autocmd FileType * map <buffer> <F2> :w<CR>:exec '!gradle run '<CR>
 autocmd FileType * map <buffer> <F3> :w<CR>:exec '!./gradlew test'<CR>
-
-nmap <leader>1 :CocFix<CR>
+autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python map <buffer> <F6> :w<CR>:exec '!python3 -m unittest ' shellescape(@%, 1)<CR>
 
 nmap <leader>gs :G<CR>
 nmap <leader>gj :diffget //3<CR>
 nmap <leader>gf :diffget //2<CR>
 
-nnoremap <leader>sv :source $MYVIMRC<CR>
 
 map <Leader>1 Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
@@ -203,42 +179,12 @@ nnoremap   <silent>   <F7>    :FloatermNew! --position=topright python3 % <CR>
 nnoremap   <silent>   <F8>    :FloatermNew! --position=topright ipython <CR>
 
 
-" Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
-
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-" Use <leader>x for convert visual selected code to snippet
-xmap <leader>x  <Plug>(coc-convert-snippet)
-
 nmap <leader>ca  <Plug>(coc-codeaction)
+nmap <F9> :CocOutline<CR>
 
 nnoremap   <silent>   <F12>   :FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 nnoremap   <silent>   <leader>i  :FloatermNew --height=0.9 --width=0.8 lazygit<CR>
-tnoremap   <silent>   <F10>   <C-\><C-n>:FloatermNew lazygit<CR>
-
-"fzf
-nnoremap <silent> <leader>ff :Files<CR>
-nnoremap <silent> <leader>f :Files<CR>
-nnoremap <silent> <leader>t :Rg<CR>
-nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
-nnoremap <silent> <leader>fh :History<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <leader>fl :BLines<CR>
-nnoremap <silent> <leader>fm :Marks<CR>
-nnoremap <silent> <leader>fc :Commands<CR>
-nnoremap <silent> <F1> :Helptags<CR>
 
 " for normal mode - the word under the cursor
 nmap <Leader>di <Plug>VimspectorBalloonEval
@@ -252,13 +198,59 @@ let g:coc_fzf_preview = 'down:50%'
 let g:coc_fzf_opts=['--layout=reverse']
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
 " let g:coc_fzf_preview_fullscreen=1
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
+nnoremap <silent> <leader>fh :History<CR>
+nnoremap <silent> <leader>fl :BLines<CR>
+nnoremap <silent> <leader>fm :Marks<CR>
+
 " mappings
-nnoremap <silent> <space><space> :<C-u>CocFzfList<CR>
-nnoremap <silent> <space>a       :<C-u>CocFzfList diagnostics<CR>
-nnoremap <silent> <space>aa       :<C-u>CocFzfList diagnostics --current-buf<CR>
-nnoremap <silent> <space>c       :<C-u>CocFzfList commands<CR>
+nnoremap <silent> <space>a       :<C-u>Telescope coc diagnostics<CR>
+nnoremap <silent> <space>aa      :<C-u>Telescope coc workspace_diagnostics<CR>
+nnoremap <silent> <space>c       :<C-u>Telescope coc commands<CR>
 nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
-" nnoremap <silent> <space>l       :<C-u>CocFzfList location<CR>
 nnoremap <silent> <space>o       :<C-u>CocFzfList outline<CR>
-nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
+nnoremap <silent> <space>s       :<C-u>Telescope coc workspace_symbols<CR>
 nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
+
+nnoremap <silent> <space><space> :<C-u>Telescope<CR>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope git_files<cr>
+nnoremap <leader>t  <cmd>Telescope live_grep<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+lua << EOF
+local telescope = require('telescope')
+telescope.setup {
+  defaults = {
+      layout_config = {
+          prompt_position = "top",
+          width=0.9,
+          height=0.8,
+    },
+  },
+  pickers = {
+    live_grep = {
+        layout_config = {
+          prompt_position = "top",
+        }
+    }
+  },
+  extensions = {
+    bookmarks = {
+      selected_browser = 'chrome',
+    },
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+    }
+  }
+}
+telescope.load_extension('gradle')
+telescope.load_extension('bookmarks')
+telescope.load_extension('fzf')
+telescope.load_extension('coc')
+EOF
+
