@@ -20,6 +20,7 @@ source ~/.config/nvim/which_key.vim
 :set number
 :set relativenumber
 set mouse=a
+set guicursor=a:blinkwait5-blinkon5-blinkoff5
 
 map gf :edit <cfile><cr>
 
@@ -161,6 +162,10 @@ nnoremap <leader>t <cmd>FloatermNew<cr>
 " nnoremap <leader>fb <cmd>Telescope buffers<cr>
 " nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+
+" lua << EOF
+" require('telescope').load_extension('coc')
+" EOF
 " nmap <F3> :NERDTreeFind<CR>
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
@@ -253,7 +258,7 @@ nnoremap <silent> <space>a       :<C-u>CocFzfList diagnostics<CR>
 nnoremap <silent> <space>aa       :<C-u>CocFzfList diagnostics --current-buf<CR>
 nnoremap <silent> <space>c       :<C-u>CocFzfList commands<CR>
 nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
-nnoremap <silent> <space>l       :<C-u>CocFzfList location<CR>
+" nnoremap <silent> <space>l       :<C-u>CocFzfList location<CR>
 nnoremap <silent> <space>o       :<C-u>CocFzfList outline<CR>
-" nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
+nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
 nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
