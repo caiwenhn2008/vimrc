@@ -1,4 +1,6 @@
 {
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": true,
   "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
   "codeLens.enable": true,
   "java.referencesCodeLens.enabled": true,

@@ -172,7 +172,7 @@ nmap <leader>gj :diffget //3<CR>
 nmap <leader>gf :diffget //2<CR>
 
 
-map <Leader>1 Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+map <Leader>3 Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
 " python run config
 nnoremap   <silent>   <F7>    :FloatermNew! --position=topright python3 % <CR>
