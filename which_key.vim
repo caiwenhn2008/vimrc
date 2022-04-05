@@ -19,14 +19,12 @@ let g:which_key_map['.'] = [ ':e $MYVIMRC'                                     ,
 let g:which_key_map[';'] = [ ':Commands'                                       , 'commands' ]
 let g:which_key_map['h'] = [ '<C-W>s'                                          , 'split below']
 let g:which_key_map['n'] = [ ':let @/ = ""'                                    , 'no highlight' ]
-let g:which_key_map['p'] = [ ':Files'                                          , 'search files' ]
 let g:which_key_map['q'] = [ '<Plug>(coc-fix-current)'                         , 'quickfix' ]
-let g:which_key_map['T'] = [ ':TSHighlightCapturesUnderCursor'                 , 'treesitter highlight' ]
 let g:which_key_map['v'] = [ '<C-W>v'                                          , 'split right']
 
 
 " a is for actions
-let g:which_key_map.r = {
+let g:which_key_map.a = {
       \ 'name' : '+actions' ,
       \ 'c' : [':ColorizerToggle'        , 'colorizer'],
       \ 'e' : [':CocCommand explorer'    , 'explorer'],
