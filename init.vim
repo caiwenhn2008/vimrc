@@ -34,6 +34,7 @@ set showmode
 set showcmd
 set tw=79   " width of document (used by gd)
 set nowrap  " don't automatically wrap on load
+:set wrap linebreak
 set fo-=t   " don't automatically wrap text when typing
 "set colorcolumn=200
 highlight ColorColumn ctermbg=233

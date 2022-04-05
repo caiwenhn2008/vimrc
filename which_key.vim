@@ -143,6 +143,7 @@ let g:which_key_map.t = {
       \ 't' : [':FloatermToggle'                                , 'toggle'],
       \ 'y' : [':FloatermNew btm'                              , 'ytop'],
       \ 's' : [':FloatermNew ncdu'                              , 'ncdu'],
+      \ 'r' : [':FloatermNew ranger'                              , 'ranger'],
       \ }
 
 " l is for language server protocol
