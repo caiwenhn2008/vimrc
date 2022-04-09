@@ -168,9 +168,8 @@ autocmd FileType * map <buffer> <F3> :w<CR>:exec '!./gradlew test'<CR>
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python map <buffer> <F6> :w<CR>:exec '!python3 -m unittest ' shellescape(@%, 1)<CR>
 
-nmap <leader>gs :G<CR>
-nmap <leader>gj :diffget //3<CR>
-nmap <leader>gf :diffget //2<CR>
+" nmap <leader>gj :diffget //3<CR>
+" nmap <leader>gf :diffget //2<CR>
 
 
 map <Leader>3 Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
