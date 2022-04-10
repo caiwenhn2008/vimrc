@@ -174,6 +174,7 @@ let g:which_key_map.l = {
       \ 'U' : [':CocUpdate'                          , 'update CoC'],
       \ 'z' : [':CocDisable'                         , 'disable CoC'],
       \ 'Z' : [':CocEnable'                          , 'enable CoC'],
+      \ '`' : [':CocCommand java.projectConfiguration.update'                          , 'refresh dependency'],
       \ }
       " \ 'o' : ['<Plug>(coc-openlink)'                , 'open link'],
 

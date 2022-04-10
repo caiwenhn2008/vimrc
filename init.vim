@@ -145,7 +145,27 @@ autocmd! User vim-which-key call which_key#register(',', 'g:which_key_map')
 Plug 'puremourning/vimspector'
 
 Plug 'sheerun/vim-polyglot'
+Plug 'unblevable/quick-scope'
+Plug 'kshenoy/vim-signature'
+Plug 'wfxr/minimap.vim'
+Plug 'j5shi/CommandlineComplete.vim'
 call plug#end()
+
+cmap <c-p> <Plug>CmdlineCompleteBackward
+cmap <c-n> <Plug>CmdlineCompleteForward
+
+let g:minimap_width = 10
+let g:minimap_auto_start = 1
+let g:minimap_auto_start_win_enter = 1
+
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" Trigger a highlight only when pressing f and F.
+let g:qs_highlight_on_keys = ['f', 'F']
+highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+let g:qs_max_chars=150
 
 let g:airline_theme='simple'
 
