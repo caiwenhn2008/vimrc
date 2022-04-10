@@ -149,7 +149,10 @@ Plug 'unblevable/quick-scope'
 Plug 'kshenoy/vim-signature'
 Plug 'wfxr/minimap.vim'
 Plug 'j5shi/CommandlineComplete.vim'
+Plug 'diepm/vim-rest-console'
 call plug#end()
+
+:set ft=rest
 
 cmap <c-p> <Plug>CmdlineCompleteBackward
 cmap <c-n> <Plug>CmdlineCompleteForward
