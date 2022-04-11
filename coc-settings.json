@@ -1,6 +1,9 @@
 {
+  "explorer.icon.enableNerdfont": true,
+  "explorer.width": 30,
+  "explorer.previewAction.onHover": "labeling",
   "diagnostic.virtualText": true,
-  "diagnostic.virtualTextCurrentLineOnly": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
   "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
   "codeLens.enable": true,
   "java.referencesCodeLens.enabled": true,
@@ -14,7 +17,8 @@
     "html",
     "json",
     "python",
-    "java"
+    "java",
+    "xml"
   ],
   "suggest.completionItemKindLabels": {
     "class": "\uf0e8",

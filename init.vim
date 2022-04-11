@@ -1,6 +1,7 @@
 "~/.config/nvim/init.vim
 "pip3 install autopep
 let mapleader = " "
+" set ft=rest
 
 " set foldmethod=syntax
 " set foldenable
@@ -91,7 +92,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 call plug#begin(stdpath('data') . 'vimplug')
 
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysiw)
-Plug 'https://github.com/preservim/nerdtree' " NerdTree
+" Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc & gcgc
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'vim-airline/vim-airline-themes'
@@ -135,7 +136,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'antoinemadec/coc-fzf'
 
-Plug 'ap/vim-buftabline'
+" Plug 'ap/vim-buftabline'
 
 Plug 'liuchengxu/vim-which-key'
 " On-demand lazy load
@@ -149,17 +150,15 @@ Plug 'unblevable/quick-scope'
 Plug 'kshenoy/vim-signature'
 Plug 'wfxr/minimap.vim'
 Plug 'j5shi/CommandlineComplete.vim'
-Plug 'diepm/vim-rest-console'
+" Plug 'diepm/vim-rest-console'
 call plug#end()
-
-:set ft=rest
 
 cmap <c-p> <Plug>CmdlineCompleteBackward
 cmap <c-n> <Plug>CmdlineCompleteForward
 
 let g:minimap_width = 10
-let g:minimap_auto_start = 1
-let g:minimap_auto_start_win_enter = 1
+" let g:minimap_auto_start = 1
+" let g:minimap_auto_start_win_enter = 1
 
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
@@ -174,8 +173,6 @@ let g:airline_theme='simple'
 
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
 
 
 nnoremap <C-J> <C-W><C-J>
@@ -277,3 +274,22 @@ telescope.load_extension('fzf')
 telescope.load_extension('coc')
 EOF
 
+let g:coc_explorer_global_presets = {
+\   'tab': {
+\     'position': 'tab',
+\     'quit-on-open': v:true,
+\   },
+\   'floating': {
+\     'position': 'floating',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'buffer': {
+\     'sources': [{'name': 'buffer', 'expand': v:true}]
+\   },
+\ }
+
+nmap <space>ed <Cmd>CocCommand explorer --toggle --sources=buffer+,file+<CR>
+nmap <space>ef <Cmd>CocCommand explorer --toggle --sources=buffer+,file+ --preset floating<CR>
+nmap <space>eb <Cmd>CocCommand explorer --toggle --sources=buffer+,file+ --preset buffer <CR>
+nnoremap <C-f> <Cmd>CocCommand explorer --toggle --sources=buffer+,file+<CR>
+nmap <C-n> <Cmd>call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
