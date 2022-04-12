@@ -151,8 +151,23 @@ Plug 'kshenoy/vim-signature'
 " Plug 'wfxr/minimap.vim'
 Plug 'j5shi/CommandlineComplete.vim'
 " Plug 'diepm/vim-rest-console'
+Plug 'mbbill/undotree'
 call plug#end()
 
+if has("persistent_undo")
+   let target_path = expand('~/.undodir')
+
+    " create the directory and any parent directories
+    " if the location does not exist.
+    if !isdirectory(target_path)
+        call mkdir(target_path, "p", 0700)
+    endif
+
+    let &undodir=target_path
+    set undofile
+endif
+
+nnoremap <F1> :UndotreeToggle<CR>
 cmap <c-p> <Plug>CmdlineCompleteBackward
 cmap <c-n> <Plug>CmdlineCompleteForward
 
@@ -291,5 +306,7 @@ let g:coc_explorer_global_presets = {
 nmap <space>ed <Cmd>CocCommand explorer --toggle --sources=buffer+,file+<CR>
 nmap <space>ef <Cmd>CocCommand explorer --toggle --sources=buffer+,file+ --preset floating<CR>
 nmap <space>eb <Cmd>CocCommand explorer --toggle --sources=buffer+,file+ --preset buffer <CR>
-nnoremap <C-f> <Cmd>CocCommand explorer --toggle --sources=buffer+,file+<CR>
+nnoremap <C-f> <Cmd>CocCommand explorer --toggle --sources=buffer-,file+<CR>
 nmap <C-n> <Cmd>call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
+
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
