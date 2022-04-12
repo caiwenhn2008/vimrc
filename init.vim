@@ -152,6 +152,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'j5shi/CommandlineComplete.vim'
 " Plug 'diepm/vim-rest-console'
 Plug 'mbbill/undotree'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 if has("persistent_undo")
@@ -310,3 +311,5 @@ nnoremap <C-f> <Cmd>CocCommand explorer --toggle --sources=buffer-,file+<CR>
 nmap <C-n> <Cmd>call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
 
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+
+map , <Plug>(easymotion-prefix)
