@@ -92,7 +92,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 call plug#begin(stdpath('data') . 'vimplug')
 
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysiw)
-" Plug 'https://github.com/preservim/nerdtree' " NerdTree
+Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc & gcgc
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'vim-airline/vim-airline-themes'
@@ -136,7 +136,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'antoinemadec/coc-fzf'
 
-" Plug 'ap/vim-buftabline'
+Plug 'ap/vim-buftabline'
 
 Plug 'liuchengxu/vim-which-key'
 " On-demand lazy load
@@ -148,11 +148,13 @@ Plug 'puremourning/vimspector'
 Plug 'sheerun/vim-polyglot'
 Plug 'unblevable/quick-scope'
 Plug 'kshenoy/vim-signature'
-" Plug 'wfxr/minimap.vim'
+Plug 'wfxr/minimap.vim'
 Plug 'j5shi/CommandlineComplete.vim'
 " Plug 'diepm/vim-rest-console'
 Plug 'mbbill/undotree'
 Plug 'easymotion/vim-easymotion'
+Plug 'mtdl9/vim-log-highlighting'
+Plug 'sindrets/diffview.nvim'
 call plug#end()
 
 if has("persistent_undo")
@@ -173,8 +175,8 @@ cmap <c-p> <Plug>CmdlineCompleteBackward
 cmap <c-n> <Plug>CmdlineCompleteForward
 
 let g:minimap_width = 10
-" let g:minimap_auto_start = 1
-" let g:minimap_auto_start_win_enter = 1
+let g:minimap_auto_start = 1
+let g:minimap_auto_start_win_enter = 1
 
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
@@ -199,7 +201,7 @@ nnoremap <C-H> <C-W><C-H>
 :colorscheme gruvbox
 " :colorscheme onehalfdark
 
-autocmd FileType * map <buffer> <F2> :w<CR>:exec '!gradle run '<CR>
+" autocmd FileType * map <buffer> <F2> :w<CR>:exec '!gradle run '<CR>
 autocmd FileType * map <buffer> <F3> :w<CR>:exec '!./gradlew test'<CR>
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python map <buffer> <F6> :w<CR>:exec '!python3 -m unittest ' shellescape(@%, 1)<CR>
@@ -245,7 +247,7 @@ nnoremap <silent> <space>aa      :<C-u>Telescope coc workspace_diagnostics<CR>
 nnoremap <silent> <space>c       :<C-u>Telescope coc commands<CR>
 nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
 nnoremap <silent> <space>o       :<C-u>CocFzfList outline<CR>
-nnoremap <silent> <space>s       :<C-u>Telescope coc workspace_symbols<CR>
+" nnoremap <silent> <space>s       :<C-u>Telescope coc workspace_symbols<CR>
 nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
 
 nnoremap <silent> <space><space> :<C-u>Telescope<CR>
@@ -260,7 +262,7 @@ local telescope = require('telescope')
 telescope.setup {
   defaults = {
       layout_config = {
-          prompt_position = "top",
+          prompt_position = "bottom",
           width=0.9,
           height=0.8,
     },
@@ -268,7 +270,7 @@ telescope.setup {
   pickers = {
     live_grep = {
         layout_config = {
-          prompt_position = "top",
+          prompt_position = "bottom",
         }
     }
   },
@@ -290,25 +292,8 @@ telescope.load_extension('fzf')
 telescope.load_extension('coc')
 EOF
 
-let g:coc_explorer_global_presets = {
-\   'tab': {
-\     'position': 'tab',
-\     'quit-on-open': v:true,
-\   },
-\   'floating': {
-\     'position': 'floating',
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'buffer': {
-\     'sources': [{'name': 'buffer', 'expand': v:true}]
-\   },
-\ }
-
-nmap <space>ed <Cmd>CocCommand explorer --toggle --sources=buffer+,file+<CR>
-nmap <space>ef <Cmd>CocCommand explorer --toggle --sources=buffer+,file+ --preset floating<CR>
-nmap <space>eb <Cmd>CocCommand explorer --toggle --sources=buffer+,file+ --preset buffer <CR>
-nnoremap <C-f> <Cmd>CocCommand explorer --toggle --sources=buffer-,file+<CR>
-nmap <C-n> <Cmd>call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
