@@ -183,7 +183,7 @@ cmap <c-p> <Plug>CmdlineCompleteBackward
 cmap <c-n> <Plug>CmdlineCompleteForward
 
 let g:minimap_width = 10
-let g:minimap_auto_start = 1
+nnoremap <F2> :MinimapToggle<CR>
 
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
