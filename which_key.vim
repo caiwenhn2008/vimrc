@@ -103,7 +103,7 @@ let g:which_key_map.g = {
       \ 'a' : [':Git add .'                        , 'add all'],
       \ 'A' : [':Git add %'                        , 'add current'],
       \ 'b' : [':Git blame'                        , 'blame'],
-      \ 'c' : [':Git commit'                       , 'commit'],
+      \ 'c' : [':DiffviewClose'                       , 'diffview close'],
       \ 'D' : [':DiffviewOpen'                         , 'diff'],
       \ 'd' : [':Gdiffsplit'                       , 'diff split'],
       \ 'g' : [':G grep'                            , 'git grep'],

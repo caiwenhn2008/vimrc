@@ -92,7 +92,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 call plug#begin(stdpath('data') . 'vimplug')
 
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysiw)
-Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc & gcgc
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'vim-airline/vim-airline-themes'
@@ -154,7 +153,16 @@ Plug 'j5shi/CommandlineComplete.vim'
 Plug 'mbbill/undotree'
 Plug 'easymotion/vim-easymotion'
 Plug 'mtdl9/vim-log-highlighting'
+
 Plug 'sindrets/diffview.nvim'
+
+Plug 'preservim/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+            \ Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'PhilRunninger/nerdtree-visual-selection'
+
 call plug#end()
 
 if has("persistent_undo")
@@ -177,7 +185,8 @@ cmap <c-n> <Plug>CmdlineCompleteForward
 let g:minimap_width = 10
 let g:minimap_auto_start = 1
 let g:minimap_auto_start_win_enter = 1
-
+let g:minimap_block_filetypes=['nofile', 'nowrite', 'quickfix', 'terminal', 'prompt']
+let g:minimap_close_filetypes=['startify', 'netrw', 'vim-plug']
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
@@ -222,7 +231,7 @@ nmap <F9> :CocOutline<CR>
 
 nnoremap   <silent>   <F12>   :FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
-nnoremap   <silent>   <leader>i  :FloatermNew --height=0.9 --width=0.8 lazygit<CR>
+nnoremap   <silent>   <leader>i  :FloatermNew --height=0.99 --width=0.99 lazygit<CR>
 
 " for normal mode - the word under the cursor
 nmap <Leader>di <Plug>VimspectorBalloonEval
@@ -292,6 +301,26 @@ telescope.load_extension('fzf')
 telescope.load_extension('coc')
 EOF
 
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
+
+let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+let g:NERDTreeGitStatusShowClean = 1
+let g:NERDTreeGitStatusUntrackedFilesMode = 'all'
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
