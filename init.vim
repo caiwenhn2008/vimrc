@@ -4,7 +4,7 @@ let mapleader = " "
 " set ft=rest
 
 " set foldmethod=syntax
-" set foldenable
+"pip3 install ipdb pdbpp autopep8 wheel set foldenable
 " set foldlevel=0
 " set foldnestmax=10
 " syn region foldImports start=/\(\n\?import.\+;\n\)\+/ end=+^\s*$+ transparent fold keepend
@@ -12,6 +12,9 @@ let mapleader = " "
 " syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
 " syn region foldJavadoc start=+/\*+ end=+\*/+ transparent fold keepend extend
 
+
+let g:loaded_python_provider = 0
+let g:loaded_perl_provider = 0
 
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/which_key.vim
@@ -115,7 +118,7 @@ let g:gitgutter_enabled = 1
 
 Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsFlyMode = 1
-let g:AutoPairsShortcutBackInsert = '<M-b>'
+" let g:AutoPairsShortcutBackInsert = '<M-b>'
 
 Plug 'justinmk/vim-sneak'
 
@@ -211,6 +214,8 @@ nnoremap <C-H> <C-W><C-H>
 " autocmd FileType * map <buffer> <F2> :w<CR>:exec '!gradle run '<CR>
 autocmd FileType * map <buffer> <F3> :w<CR>:exec '!./gradlew test'<CR>
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python map <buffer> <leader>r :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+nnoremap   <silent>  <leader>r <CR>:exec '!python3 -m unittest ' shellescape(@%, 1)<CR>
 autocmd FileType python map <buffer> <F6> :w<CR>:exec '!python3 -m unittest ' shellescape(@%, 1)<CR>
 
 " nmap <leader>gj :diffget //3<CR>
