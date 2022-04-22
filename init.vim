@@ -248,8 +248,7 @@ let g:coc_fzf_preview = 'down:50%'
 let g:coc_fzf_opts=['--layout=reverse']
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
 " let g:coc_fzf_preview_fullscreen=1
-nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
-nnoremap <silent> <leader>fh :History<CR>
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR> nnoremap <silent> <leader>fh :History<CR>
 nnoremap <silent> <leader>fl :BLines<CR>
 nnoremap <silent> <leader>fm :Marks<CR>
 
@@ -264,8 +263,10 @@ nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
 
 nnoremap <silent> <space><space> :<C-u>Telescope<CR>
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <c-p> <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope git_files<cr>
 nnoremap <leader>t  <cmd>Telescope live_grep<cr>
+nnoremap <c-t>  <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 

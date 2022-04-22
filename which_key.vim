@@ -16,6 +16,7 @@ let g:which_key_map =  {}
 
 " Single mappings
 let g:which_key_map['.'] = [ ':e $MYVIMRC'                                     , 'open init' ]
+let g:which_key_map['/'] = [ ':e ~/.zshrc'                                     , 'open init' ]
 let g:which_key_map[';'] = [ ':Commands'                                       , 'commands' ]
 let g:which_key_map['h'] = [ '<C-W>s'                                          , 'split below']
 let g:which_key_map['n'] = [ ':let @/ = ""'                                    , 'no highlight' ]
