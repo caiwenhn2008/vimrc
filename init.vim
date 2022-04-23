@@ -123,10 +123,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'justinmk/vim-sneak'
 
 Plug '907th/vim-auto-save'
-let g:auto_save = 1  " enable AutoSave on Vim startup
-
-Plug 'glepnir/dashboard-nvim'
-let g:dashboard_default_executive ='fzf'
+" let g:auto_save = 1  " enable AutoSave on Vim startup
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -150,7 +147,6 @@ Plug 'puremourning/vimspector'
 Plug 'sheerun/vim-polyglot'
 Plug 'unblevable/quick-scope'
 Plug 'kshenoy/vim-signature'
-Plug 'wfxr/minimap.vim'
 Plug 'j5shi/CommandlineComplete.vim'
 " Plug 'diepm/vim-rest-console'
 Plug 'mbbill/undotree'
@@ -185,12 +181,8 @@ nnoremap <F1> :UndotreeToggle<CR>
 cmap <c-p> <Plug>CmdlineCompleteBackward
 cmap <c-n> <Plug>CmdlineCompleteForward
 
-let g:minimap_width = 10
-nnoremap <F2> :MinimapToggle<CR>
-
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-
 " Trigger a highlight only when pressing f and F.
 let g:qs_highlight_on_keys = ['f', 'F']
 highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
