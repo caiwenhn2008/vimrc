@@ -117,7 +117,7 @@ Plug 'airblade/vim-gitgutter'
 let g:gitgutter_enabled = 1
 
 Plug 'jiangmiao/auto-pairs'
-let g:AutoPairsFlyMode = 1
+" let g:AutoPairsFlyMode = 1
 " let g:AutoPairsShortcutBackInsert = '<M-b>'
 
 Plug 'justinmk/vim-sneak'
@@ -212,6 +212,7 @@ nnoremap <C-H> <C-W><C-H>
 " :colorscheme onehalfdark
 
 " autocmd FileType * map <buffer> <F2> :w<CR>:exec '!gradle run '<CR>
+autocmd FileType java map <buffer> <F2> :w<CR>:exec '!mvn test -Dtest='.expand('%:t:r')<CR>
 autocmd FileType * map <buffer> <F3> :w<CR>:exec '!./gradlew test'<CR>
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python map <buffer> <leader>r :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
