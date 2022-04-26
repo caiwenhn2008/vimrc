@@ -161,6 +161,8 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'PhilRunninger/nerdtree-visual-selection'
 
+Plug 'aloussase/telescope-maven-search'
+Plug 'ThePrimeagen/harpoon'
 call plug#end()
 
 if has("persistent_undo")
@@ -209,6 +211,7 @@ autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%,
 autocmd FileType python map <buffer> <leader>r :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 nnoremap   <silent>  <leader>r <CR>:exec '!python3 -m unittest ' shellescape(@%, 1)<CR>
 autocmd FileType python map <buffer> <F6> :w<CR>:exec '!python3 -m unittest ' shellescape(@%, 1)<CR>
+:map <F4> :Telescope maven_search query=
 
 " nmap <leader>gj :diffget //3<CR>
 " nmap <leader>gf :diffget //2<CR>
@@ -295,6 +298,7 @@ telescope.load_extension('gradle')
 telescope.load_extension('bookmarks')
 telescope.load_extension('fzf')
 telescope.load_extension('coc')
+telescope.load_extension('maven_search')
 EOF
 
 let g:NERDTreeGitStatusIndicatorMapCustom = {
@@ -321,5 +325,13 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+nnoremap <silent> <space><space>  :lua require("harpoon.ui").toggle_quick_menu()<cr>
+nnoremap <silent> <space>a  :lua require("harpoon.mark").add_file()<cr>
+nnoremap <silent> 1  :lua require("harpoon.ui").nav_file(1)<cr>
+nnoremap <silent> 2  :lua require("harpoon.ui").nav_file(2)<cr>
+nnoremap <silent> 3  :lua require("harpoon.ui").nav_file(3)<cr>
+
 
 map , <Plug>(easymotion-prefix)
+
+
