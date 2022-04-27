@@ -166,6 +166,7 @@ Plug 'ThePrimeagen/harpoon'
 
 Plug 'jpalardy/vim-slime', { 'for': 'python' }
 Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
+Plug 'vim-test/vim-test'
 call plug#end()
 
 if has("persistent_undo")
@@ -209,7 +210,8 @@ nnoremap <C-H> <C-W><C-H>
 
 " autocmd FileType * map <buffer> <F2> :w<CR>:exec '!gradle run '<CR>
 autocmd FileType java map <buffer> <F2> :w<CR>:exec '!mvn test -Dtest='.expand('%:t:r')<CR>
-autocmd FileType java map <buffer> <F3> :w<CR>:exec '!./gradlew test'<CR>
+" autocmd FileType java map <buffer> <F3> :w<CR>:exec '!./gradlew test'<CR>
+autocmd FileType java map <buffer> <F3> :w<CR>:TestFile -strategy=neovim<CR>
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python map <buffer> <leader>r :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 nnoremap   <silent>  <leader>r <CR>:exec '!python3 -m unittest ' shellescape(@%, 1)<CR>
@@ -339,3 +341,5 @@ map , <Plug>(easymotion-prefix)
 let g:slime_target = "tmux"
 let g:slime_python_ipython = 1
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
+let test#java#runner = 'gradletest'
+" let test#java#runner = 'maventest'
