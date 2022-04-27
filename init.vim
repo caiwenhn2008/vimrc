@@ -163,6 +163,9 @@ Plug 'PhilRunninger/nerdtree-visual-selection'
 
 Plug 'aloussase/telescope-maven-search'
 Plug 'ThePrimeagen/harpoon'
+
+Plug 'jpalardy/vim-slime', { 'for': 'python' }
+Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 call plug#end()
 
 if has("persistent_undo")
@@ -333,5 +336,6 @@ nnoremap <silent> 3  :lua require("harpoon.ui").nav_file(3)<cr>
 
 
 map , <Plug>(easymotion-prefix)
-
-
+let g:slime_target = "tmux"
+let g:slime_python_ipython = 1
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
