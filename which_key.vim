@@ -23,6 +23,21 @@ let g:which_key_map['n'] = [ ':let @/ = ""'                                    ,
 let g:which_key_map['q'] = [ '<Plug>(coc-fix-current)'                         , 'quickfix' ]
 let g:which_key_map['v'] = [ '<C-W>v'                                          , 'split right']
 
+
+" d is for debug
+let g:which_key_map.r = {
+      \ 'name' : '+run app' ,
+      \ 'm' : [":!mvn test -Dtest=%:t:r"              , 'maven test'],
+      \ 't' : [':TestFile -strategy=floaterm'   , 'TestFile'],
+      \ 'd' : [':TestFile -strategy=floaterm  --debug-jvm'   , 'debug TestFile'],
+      \ 'p' : [ ':!python3 %'  , 'python run'],
+      \ 'u' : [ ':!python3 -m unittest %'  , 'python ut'],
+      \ 'g' : [ ':!gradle run'  , 'gradle run'],
+      \ 'q' : [ ':Telescope maven_search query='  , 'query maven lib'],
+      \ 'r' : [ ':VimspectorReset'  , 'reset'],
+      \ 's' : [ ':CocCommand java.debug.vimspector.start'  , 'start debug'],
+      \ }
+
 " d is for debug
 let g:which_key_map.d = {
       \ 'name' : '+debug' ,
@@ -79,6 +94,7 @@ let g:which_key_map.g = {
 " t is for terminal
 let g:which_key_map.t = {
       \ 'name' : '+terminal' ,
+      \ 'i' : [':FloatermNew --position=topright ipython'        , 'ipython'],
       \ ';' : [':FloatermNew --wintype=normal --height=6'        , 'terminal'],
       \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
       \ 'g' : [':FloatermNew lazygit'                           , 'git'],

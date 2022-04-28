@@ -205,37 +205,22 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-:colorscheme gruvbox
+colorscheme gruvbox
 " :colorscheme onehalfdark
 
-" autocmd FileType * map <buffer> <F2> :w<CR>:exec '!gradle run '<CR>
-autocmd FileType java map <buffer> <F2> :w<CR>:exec '!mvn test -Dtest='.expand('%:t:r')<CR>
-" autocmd FileType java map <buffer> <F3> :w<CR>:exec '!./gradlew test'<CR>
-autocmd FileType java map <buffer> <F3> :w<CR>:TestFile -strategy=neovim<CR>
-autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
-autocmd FileType python map <buffer> <leader>r :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
-nnoremap   <silent>  <leader>r <CR>:exec '!python3 -m unittest ' shellescape(@%, 1)<CR>
-autocmd FileType python map <buffer> <F6> :w<CR>:exec '!python3 -m unittest ' shellescape(@%, 1)<CR>
-:map <F4> :Telescope maven_search query=
 
 " nmap <leader>gj :diffget //3<CR>
 " nmap <leader>gf :diffget //2<CR>
-
-
+map <leader>2  :Telescope maven_search query=
 map <Leader>3 Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
-" python run config
-nnoremap   <silent>   <F7>    :FloatermNew! --position=topright python3 % <CR>
-nnoremap   <silent>   <F8>    :FloatermNew! --position=topright ipython <CR>
-
-
 nmap <leader>ca  <Plug>(coc-codeaction)
-nmap <F9> :CocOutline<CR>
 
-nnoremap   <silent>   <F12>   :FloatermToggle<CR>
-tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
+nnoremap   <silent>   <F2>   :FloatermToggle<CR>
+tnoremap   <silent>   <F2>   <C-\><C-n>:FloatermToggle<CR>
 nnoremap   <silent>   <leader>i  :FloatermNew --height=0.99 --width=0.99 lazygit<CR>
 
+let g:vimspector_enable_mappings = 'HUMAN'
 " for normal mode - the word under the cursor
 nmap <Leader>di <Plug>VimspectorBalloonEval
 " for visual mode, the visually selected text
@@ -265,7 +250,7 @@ nnoremap <silent> <space><space> :<C-u>Telescope<CR>
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <c-p> <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope git_files<cr>
-nnoremap <leader>t  <cmd>Telescope live_grep<cr>
+" nnoremap <leader>t  <cmd>Telescope live_grep<cr>
 nnoremap <c-t>  <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
