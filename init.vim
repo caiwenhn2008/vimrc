@@ -13,8 +13,10 @@ let mapleader = " "
 " syn region foldJavadoc start=+/\*+ end=+\*/+ transparent fold keepend extend
 
 
-let g:loaded_python_provider = 0
+" let g:loaded_python_provider = 0
 let g:loaded_perl_provider = 0
+let g:python_host_prog = '$HOME/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '$HOME/.pyenv/versions/neovim3/bin/python'
 
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/which_key.vim
