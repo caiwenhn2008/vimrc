@@ -166,5 +166,5 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-imap <tab> <Plug>(coc-snippets-expand)
-let g:coc_snippet_next = '<TAB>'
+imap <C-j> <Plug>(coc-snippets-expand)
+let g:coc_snippet_next = '<C-j>'
