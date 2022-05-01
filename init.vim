@@ -125,7 +125,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'justinmk/vim-sneak'
 
 Plug '907th/vim-auto-save'
-" let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save = 1  " enable AutoSave on Vim startup
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -236,6 +236,7 @@ let g:coc_fzf_opts=['--layout=reverse']
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
 " let g:coc_fzf_preview_fullscreen=1
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR> nnoremap <silent> <leader>fh :History<CR>
+map <Leader>F :call fzf#vim#ag(expand('<cword>'))<kEnter>
 nnoremap <silent> <leader>fl :BLines<CR>
 nnoremap <silent> <leader>fm :Marks<CR>
 
