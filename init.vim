@@ -169,6 +169,9 @@ Plug 'ThePrimeagen/harpoon'
 Plug 'jpalardy/vim-slime', { 'for': 'python' }
 Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 Plug 'vim-test/vim-test'
+
+Plug 'mileszs/ack.vim'
+let g:ackprg = 'ag --nogroup --nocolor --column'
 call plug#end()
 
 if has("persistent_undo")
@@ -236,7 +239,8 @@ let g:coc_fzf_opts=['--layout=reverse']
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
 " let g:coc_fzf_preview_fullscreen=1
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR> nnoremap <silent> <leader>fh :History<CR>
-map <Leader>F :call fzf#vim#ag(expand('<cword>'))<kEnter>
+map <Leader>f :Ack<CR>
+" map <Leader>f :call fzf#vim#ag(expand('<cword>'))<kEnter>
 nnoremap <silent> <leader>fl :BLines<CR>
 nnoremap <silent> <leader>fm :Marks<CR>
 
