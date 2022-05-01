@@ -5,8 +5,14 @@
   "codeLens.enable": true,
   "java.referencesCodeLens.enabled": true,
   "java.completion.enabled": true,
-  "yaml.schemas": { "kubernetes": "/*.yaml" },
-  "coc.preferences.formatOnSaveFiletypes": ["json", "python", "java"],
+  "yaml.schemas": {
+    "kubernetes": "/*.yaml"
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "json",
+    "python",
+    "java"
+  ],
   "suggest.completionItemKindLabels": {
     "class": "\uf0e8",
     "color": "\ue22b",
