@@ -172,6 +172,7 @@ Plug 'vim-test/vim-test'
 
 Plug 'mileszs/ack.vim'
 let g:ackprg = 'ag --nogroup --nocolor --column'
+Plug 'github/copilot.vim'
 call plug#end()
 
 if has("persistent_undo")
@@ -337,3 +338,10 @@ let g:slime_python_ipython = 1
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
 let test#java#runner = 'gradletest'
 " let test#java#runner = 'maventest'
+
+nnoremap H gT
+nnoremap L gt
+nmap te :tabedit
+nmap tq :tabclose<CR>
+
+nnoremap <silent>gb :Git blame<CR>
