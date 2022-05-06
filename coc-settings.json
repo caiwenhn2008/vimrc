@@ -8,11 +8,7 @@
   "yaml.schemas": {
     "kubernetes": "/*.yaml"
   },
-  "coc.preferences.formatOnSaveFiletypes": [
-    "json",
-    "python",
-    "java"
-  ],
+  "coc.preferences.formatOnSaveFiletypes": ["python", "java"],
   "suggest.completionItemKindLabels": {
     "class": "\uf0e8",
     "color": "\ue22b",

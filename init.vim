@@ -115,9 +115,9 @@ Plug 'fannheyward/telescope-coc.nvim'
 Plug 'voldikss/vim-floaterm'
 Plug 'tpope/vim-fugitive'
 
-Plug 'airblade/vim-gitgutter'
-let g:gitgutter_enabled = 1
-
+" Plug 'airblade/vim-gitgutter'
+" let g:gitgutter_enabled = 1
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'jiangmiao/auto-pairs'
 " let g:AutoPairsFlyMode = 1
 " let g:AutoPairsShortcutBackInsert = '<M-b>'
@@ -217,8 +217,8 @@ colorscheme gruvbox
 
 " nmap <leader>gj :diffget //3<CR>
 " nmap <leader>gf :diffget //2<CR>
-map <leader>2  :Telescope maven_search query=
-map <Leader>3 Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+map <C-s>  :Telescope maven_search query=
+map <C-b> Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
 nmap <leader>ca  <Plug>(coc-codeaction)
 
@@ -264,6 +264,7 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 lua << EOF
+require('gitsigns').setup()
 local telescope = require('telescope')
 telescope.setup {
   defaults = {
@@ -325,11 +326,11 @@ nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 nnoremap <silent> <space><space>  :lua require("harpoon.ui").toggle_quick_menu()<cr>
 nnoremap <silent> <space>a  :lua require("harpoon.mark").add_file()<cr>
-nnoremap <silent> 1  :lua require("harpoon.ui").nav_file(1)<cr>
-nnoremap <silent> 2  :lua require("harpoon.ui").nav_file(2)<cr>
-nnoremap <silent> 3  :lua require("harpoon.ui").nav_file(3)<cr>
-nnoremap <silent> 4  :lua require("harpoon.ui").nav_file(4)<cr>
-nnoremap <silent> 5  :lua require("harpoon.ui").nav_file(5)<cr>
+nnoremap <silent> <space>1  :lua require("harpoon.ui").nav_file(1)<cr>
+nnoremap <silent> <space>2  :lua require("harpoon.ui").nav_file(2)<cr>
+nnoremap <silent> <space>3  :lua require("harpoon.ui").nav_file(3)<cr>
+nnoremap <silent> <space>4  :lua require("harpoon.ui").nav_file(4)<cr>
+nnoremap <silent> <space>5  :lua require("harpoon.ui").nav_file(5)<cr>
 
 
 map , <Plug>(easymotion-prefix)
@@ -341,7 +342,7 @@ let test#java#runner = 'gradletest'
 
 nnoremap H gT
 nnoremap L gt
-nmap te :tabedit
+nmap te :tabedit<CR>
 nmap tq :tabclose<CR>
 
 nnoremap <silent>gb :Git blame<CR>
