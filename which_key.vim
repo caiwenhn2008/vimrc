@@ -29,6 +29,7 @@ let g:which_key_map.r = {
       \ 'name' : '+run app' ,
       \ 'm' : [":!mvn test -Dtest=%:t:r"              , 'maven test'],
       \ 'r' : [":!run %:r"              , 'maven run'],
+      \ 'b' : [":FloatermNew debug %:r"              , 'maven debug'],
       \ 't' : [':TestFile -strategy=neovim'   , 'TestFile'],
       \ 'd' : [':TestFile -strategy=floaterm  --debug-jvm'   , 'debug TestFile'],
       \ 'p' : [ ':!python3 %'  , 'python run'],
