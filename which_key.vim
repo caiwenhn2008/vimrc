@@ -28,13 +28,14 @@ let g:which_key_map['v'] = [ '<C-W>v'                                          ,
 let g:which_key_map.r = {
       \ 'name' : '+run app' ,
       \ 'm' : [":!mvn test -Dtest=%:t:r"              , 'maven test'],
+      \ 'r' : [":!run %:r"              , 'maven run'],
       \ 't' : [':TestFile -strategy=neovim'   , 'TestFile'],
       \ 'd' : [':TestFile -strategy=floaterm  --debug-jvm'   , 'debug TestFile'],
       \ 'p' : [ ':!python3 %'  , 'python run'],
       \ 'u' : [ ':!python3 -m unittest %'  , 'python ut'],
       \ 'g' : [ ':!gradle run'  , 'gradle run'],
       \ 'q' : [ ':Telescope maven_search query='  , 'query maven lib'],
-      \ 'r' : [ ':VimspectorReset'  , 'reset'],
+      \ 'i' : [ ':VimspectorReset'  , 'reset'],
       \ 's' : [ ':CocCommand java.debug.vimspector.start'  , 'start debug'],
       \ }
 
