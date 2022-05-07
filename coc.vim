@@ -167,5 +167,5 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 nnoremap <silent><nowait> <space>q  :<C-u>CocFix<CR>
 
-imap <C-j> <Plug>(coc-snippets-expand)
-let g:coc_snippet_next = '<C-j>'
+" imap <C-space> <Plug>(coc-snippets-expand)
+" let g:coc_snippet_next = '<C-space>'

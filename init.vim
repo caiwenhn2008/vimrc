@@ -130,6 +130,11 @@ let g:auto_save = 1  " enable AutoSave on Vim startup
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<C-i>"
+let g:UltiSnipsJumpBackwardTrigger="<C-b>"
+let g:UltiSnipsEditSplit="vertical"
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -217,8 +222,8 @@ colorscheme gruvbox
 
 " nmap <leader>gj :diffget //3<CR>
 " nmap <leader>gf :diffget //2<CR>
-map <C-s>  :Telescope maven_search query=
-map <C-b> Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+map <leader>2  :Telescope maven_search query=
+map <Leader>3 Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
 nmap <leader>ca  <Plug>(coc-codeaction)
 
