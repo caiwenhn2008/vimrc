@@ -1,5 +1,5 @@
 {
-  "diagnostic.virtualText": false,
+  "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
   "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
   "codeLens.enable": true,
