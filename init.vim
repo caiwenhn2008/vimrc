@@ -351,3 +351,5 @@ nmap te :tabedit<CR>
 nmap tq :tabclose<CR>
 
 nnoremap <silent>gb :Git blame<CR>
+
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
