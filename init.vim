@@ -284,6 +284,9 @@ telescope.setup {
         layout_config = {
           prompt_position = "bottom",
         }
+    },
+    find_files = {
+        previewer=false
     }
   },
   extensions = {
