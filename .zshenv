@@ -32,3 +32,4 @@ debug() {
     fi
 }
 
+. "$HOME/.cargo/env"
