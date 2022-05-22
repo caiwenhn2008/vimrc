@@ -17,7 +17,7 @@ let mapleader = " "
 let g:loaded_perl_provider = 0
 let g:python_host_prog = '$HOME/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = '$HOME/.pyenv/versions/neovim3/bin/python'
-
+" set guifont=MesloLGLDZ\ Nerd\ Font\ Mono:h20
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/which_key.vim
 
@@ -227,9 +227,7 @@ map <Leader>3 Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
 nmap <leader>ca  <Plug>(coc-codeaction)
 
-nnoremap   <silent>   <F3>   :FloatermToggle<CR>
 nnoremap   <silent>   <F2>   :!run %:r<CR>
-tnoremap   <silent>   <F3>   <C-\><C-n>:FloatermToggle<CR>
 nnoremap   <silent>   <leader>i  :FloatermNew --height=0.99 --width=0.99 lazygit<CR>
 
 let g:vimspector_enable_mappings = 'HUMAN'
@@ -357,4 +355,4 @@ nmap tq :tabclose<CR>
 nnoremap <silent>gb :Git blame<CR>
 
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
-nnoremap <silent> <space>a  :<C-u>CocAction<cr>
+nnoremap <silent> <space>q  :<C-u>CocAction<cr>

@@ -38,6 +38,7 @@ let g:which_key_map.r = {
       \ 'q' : [ ':Telescope maven_search query='  , 'query maven lib'],
       \ 'i' : [ ':VimspectorReset'  , 'reset'],
       \ 's' : [ ':CocCommand java.debug.vimspector.start'  , 'start debug'],
+      \ 'f' : [ ':FloatermNew! --height=0.4 --position=bottom --wintype=split  python3 %'  , 'python debug'],
       \ }
 
 " d is for debug
@@ -101,7 +102,7 @@ let g:which_key_map.t = {
       \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
       \ 'g' : [':FloatermNew lazygit'                           , 'git'],
       \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
-      \ 'n' : [':FloatermNew node'                              , 'node'],
+      \ 'n' : [':FloatermNew --height=0.4 --position=bottom --wintype=split'                              , 'new window'],
       \ 'N' : [':FloatermNew nnn'                               , 'nnn'],
       \ 'p' : [':FloatermNew python'                            , 'python'],
       \ 't' : [':FloatermToggle'                                , 'toggle'],
