@@ -1,5 +1,7 @@
 autocmd! bufwritepost .vimrc source %
 
+source ~/.config/nvim/coc.vim
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -7,7 +9,7 @@ nmap <silent> gr <Plug>(coc-references)
 
 set pastetoggle=<F2>
 set clipboard=unnamed
-
+:set relativenumber
 set nocompatible               " be iMproved
 set mouse=a  " on OSX press ALT and click
 set bs=2   " make backspace behave like normal again
@@ -89,6 +91,12 @@ set shiftwidth=2
 set expandtab
 
 
+map gf :edit <cfile><cr>
+
+noremap ; :
+noremap Q :q<CR>
+" noremap <C-q> :qa<CR>
+noremap S :w<CR>
 
 "in order to switch between buffers with unsaved change
 set hidden
@@ -154,10 +162,6 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 " quickly comment your code, try <leader>cc on selected line
 Plugin 'vim-scripts/The-NERD-Commenter'
 
-Plugin 'nathanaelkane/vim-indent-guides'
-" indent guides shortcut
-map <silent><F7>  <leader>ig
-
 " file tree like something called IDE
 Plugin 'scrooloose/nerdtree'
 nmap <F8> :NERDTreeToggle<CR>
@@ -181,18 +185,18 @@ let g:tagbar_auto_faocus =1
 " autocmd BufReadPost *.rb call tagbar#autoopen()
 nmap <F9> :TagbarToggle<CR>
 
-" Plugin 'SirVer/ultisnips'
-" Plugin 'honza/vim-snippets'
-
 Plugin 'airblade/vim-gitgutter'
 let g:gitgutter_enabled = 1
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
 
+Plugin '907th/vim-auto-save'
+let g:auto_save = 1  " enable AutoSave on Vim startup
+
 
 call vundle#end()
 
-colorscheme gruvbox
+colorscheme desert
 
 "nnoremapG<leader>a <C-]>
 nnoremap <leader>t <c-t>
@@ -218,3 +222,8 @@ let g:pymode_warnings = 1
 let g:pymode_lint = 1
 let g:pymode_lint_ignore = ["E501", "E101", "W",]
 autocmd FileType python map <buffer> <F10> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
