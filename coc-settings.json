@@ -1,4 +1,7 @@
 {
+  "solargraph.useBundler": false,
+  "solargraph.commandPath": "$HOME/.rbenv/shims/solargraph",
+  "solargraph.bundlerPath": "bundle",
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
   "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
