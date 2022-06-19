@@ -365,4 +365,4 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
 
-let g:coc_global_extensions = ['coc-yank', 'coc-snippets', 'coc-prettier', 'coc-eslint', 'coc-yaml', 'coc-vimlsp', 'coc-tsserver', 'coc-solargraph', 'coc-pyright', 'coc-markdownlint', 'coc-json', 'coc-java-lombok', 'coc-java', 'coc-go', 'coc-clangd', 'coc-java-debug']
+let g:coc_global_extensions = ['coc-yank', 'coc-snippets', 'coc-prettier', 'coc-eslint', 'coc-yaml', 'coc-vimlsp', 'coc-tsserver', 'coc-solargraph', 'coc-pyright', 'coc-markdownlint', 'coc-json', 'coc-java-lombok', 'coc-java', 'coc-go', 'coc-clangd']
