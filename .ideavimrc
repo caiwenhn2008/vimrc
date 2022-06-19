@@ -1,0 +1,98 @@
+" ================================================================================================
+" = Extensions =====================================
+" ================================================================================================
+Plug 'tpope/vim-surround'
+Plug 'preservim/nerdtree'
+
+" ================================================================================================
+" = Basic settings =====================================
+" ================================================================================================
+set clipboard+=unnamed
+set ignorecase
+set scrolloff=30
+set history=200
+
+set number
+set relativenumber
+
+set incsearch
+set hlsearch
+set keep-english-in-normal
+
+" ================================================================================================
+" = No Leader Keymaps =====================================
+" ================================================================================================
+nmap ge <action>(GotoNextError)
+nmap gt <action>(GotoTest)
+nmap gm <action>(MethodUp)
+" last changed in current buffer(file)
+nmap ga '.
+
+" paste之后不会把yank的内容替换掉
+vmap p "_dp
+
+" bookmark in whole program
+nmap ma mA
+nmap 'a 'A
+nmap ms mS
+nmap 's 'S
+nmap md mD
+nmap 'd 'D
+nmap mf mF
+nmap 'f 'F
+
+let mapleader=" "
+set sneak
+
+
+" f: Find/Format ⭐️
+nmap <leader>ff <action>(GotoFile)
+
+nmap <leader>fl <action>(SelectInProjectView)
+
+nmap <leader>ft <action>(FindInPath)
+
+nmap <leader>fc <action>(GotoAction)
+
+nmap <leader>fp <action>(OpenProjectWindows)
+
+nmap <leader>fm <action>(ReformatCode) \| <action>(OptimizeImports)
+
+" g: Git ⭐️
+nmap <leader>gr :action Vcs.RollbackChangedLines<CR>
+
+nmap <leader>lr <action>(RenameElement)
+
+
+" n: No ⭐️
+nmap <leader>n :nohlsearch<CR>
+
+
+" s: Show ⭐️
+nmap <leader>ss <action>(FileStructurePopup)
+nmap <leader>sb <action>(ShowBookmarks)
+
+" r: Run/Re ⭐️
+nmap <leader>rr <action>(Rerun)
+nmap <leader>rt <action>(RerunTests)
+map <leader>rn <action>(RenameElement)
+
+" w: Window ⭐️
+nmap <leader>wo <action>(UnsplitAll) \| <action>(HideAllWindows)
+nmap <leader>wc <c-w>c
+
+
+" c: Close ⭐️;
+nmap <leader>c :q!<CR>
+
+" e: Toggle Explorer ⭐️
+nmap <leader>e <action>(ActivateProjectToolWindow)
+" e: Extract
+" extract method/function
+vmap <leader>em <action>(ExtractMethod)
+" extract constant
+vmap <leader>ec <action>(IntroduceConstant)
+" extract field
+vmap <leader>ef <action>(IntroduceField)
+" extract variable
+vmap <leader>ev <action>(IntroduceVariable)
