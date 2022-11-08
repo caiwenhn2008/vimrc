@@ -300,7 +300,8 @@ let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
 let g:NERDTreeGitStatusShowClean = 1
 let g:NERDTreeGitStatusUntrackedFilesMode = 'all'
-nnoremap <C-n> :NERDTree<CR>
+let g:NERDTreeWinSize=45
+nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
