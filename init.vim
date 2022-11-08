@@ -1,28 +1,16 @@
 "~/.config/nvim/init.vim
-"pip3 install autopep
 let mapleader = " "
-" set ft=rest
-
-" set foldmethod=syntax
 "pip3 install ipdb pdbpp autopep8 wheel set foldenable
-" set foldlevel=0
-" set foldnestmax=10
-" syn region foldImports start=/\(\n\?import.\+;\n\)\+/ end=+^\s*$+ transparent fold keepend
-" autocmd FileType java :set fmr=/**,*/ fdm=marker fdc=1
-" syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-" syn region foldJavadoc start=+/\*+ end=+\*/+ transparent fold keepend extend
 
-
-" let g:loaded_python_provider = 0
-let g:loaded_perl_provider = 0
 let g:python_host_prog = '$HOME/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = '$HOME/.pyenv/versions/neovim3/bin/python'
-" set guifont=MesloLGLDZ\ Nerd\ Font\ Mono:h20
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/which_key.vim
 
 nnoremap <leader>sv :source $MYVIMRC<CR>
 :set clipboard=unnamed
+
+:set cmdheight=1
 
 :set number
 :set relativenumber
@@ -31,10 +19,9 @@ set guicursor=a:blinkwait5-blinkon5-blinkoff5
 
 map gf :edit <cfile><cr>
 
-noremap ; :
-noremap Q :q<CR>
-" noremap <C-q> :qa<CR>
-noremap S :w<CR>
+" noremap ; :
+" noremap Q :q<CR>
+" noremap S :w<CR>
 
 set showmode
 set showcmd
@@ -42,7 +29,6 @@ set tw=79   " width of document (used by gd)
 set nowrap  " don't automatically wrap on load
 :set wrap linebreak
 set fo-=t   " don't automatically wrap text when typing
-"set colorcolumn=200
 highlight ColorColumn ctermbg=233
 
 " Useful  2 settings
@@ -113,16 +99,11 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'fannheyward/telescope-coc.nvim'
 
 Plug 'voldikss/vim-floaterm'
-Plug 'tpope/vim-fugitive'
 
-" Plug 'airblade/vim-gitgutter'
-" let g:gitgutter_enabled = 1
+Plug 'airblade/vim-gitgutter'
+let g:gitgutter_enabled = 1
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'jiangmiao/auto-pairs'
-" let g:AutoPairsFlyMode = 1
-" let g:AutoPairsShortcutBackInsert = '<M-b>'
-
-Plug 'justinmk/vim-sneak'
 
 Plug '907th/vim-auto-save'
 let g:auto_save = 1  " enable AutoSave on Vim startup
@@ -145,7 +126,6 @@ Plug 'antoinemadec/coc-fzf'
 Plug 'ap/vim-buftabline'
 
 Plug 'liuchengxu/vim-which-key'
-" On-demand lazy load
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 autocmd! User vim-which-key call which_key#register(',', 'g:which_key_map')
 
@@ -156,7 +136,6 @@ Plug 'unblevable/quick-scope'
 Plug 'kshenoy/vim-signature'
 Plug 'j5shi/CommandlineComplete.vim'
 Plug 'mbbill/undotree'
-Plug 'easymotion/vim-easymotion'
 Plug 'mtdl9/vim-log-highlighting'
 
 Plug 'sindrets/diffview.nvim'
@@ -211,17 +190,13 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 
 
 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
 
 colorscheme gruvbox
-" :colorscheme onehalfdark
 
-
-" nmap <leader>gj :diffget //3<CR>
-" nmap <leader>gf :diffget //2<CR>
 map <leader>2  :Telescope maven_search query=
 map <Leader>3 Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
@@ -242,10 +217,8 @@ nnoremap <silent><nowait> <leader>dj :<C-u>CocCommand java.debug.vimspector.star
 let g:coc_fzf_preview = 'down:50%'
 let g:coc_fzf_opts=['--layout=reverse']
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
-" let g:coc_fzf_preview_fullscreen=1
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR> nnoremap <silent> <leader>fh :History<CR>
 map <Leader>f :Ack<CR>
-" map <Leader>f :call fzf#vim#ag(expand('<cword>'))<kEnter>
 nnoremap <silent> <leader>fl :BLines<CR>
 nnoremap <silent> <leader>fm :Marks<CR>
 
@@ -340,7 +313,6 @@ nnoremap <silent> <space>4  :lua require("harpoon.ui").nav_file(4)<cr>
 nnoremap <silent> <space>5  :lua require("harpoon.ui").nav_file(5)<cr>
 
 
-map , <Plug>(easymotion-prefix)
 let g:slime_target = "tmux"
 let g:slime_python_ipython = 1
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
@@ -365,4 +337,4 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
 
-let g:coc_global_extensions = ['coc-yank', 'coc-snippets', 'coc-prettier', 'coc-eslint', 'coc-yaml', 'coc-vimlsp', 'coc-tsserver', 'coc-solargraph', 'coc-pyright', 'coc-markdownlint', 'coc-json', 'coc-java-lombok', 'coc-java', 'coc-go', 'coc-clangd']
+let g:coc_global_extensions = [ 'coc-yank', 'coc-snippets', 'coc-prettier', 'coc-eslint', 'coc-vimlsp', 'coc-tsserver', 'coc-solargraph', 'coc-pyright', 'coc-markdownlint', 'coc-json', 'coc-java-lombok', 'coc-java', 'coc-go', 'coc-clangd']
