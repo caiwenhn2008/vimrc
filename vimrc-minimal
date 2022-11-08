@@ -1,12 +1,5 @@
 autocmd! bufwritepost .vimrc source %
 
-source ~/.config/nvim/coc.vim
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
 set pastetoggle=<F2>
 set clipboard=unnamed
 :set relativenumber
@@ -56,7 +49,7 @@ set relativenumber
 set showmode
 set showcmd
 set tw=79   " width of document (used by gd)
-set nowrap  " don't automatically wrap on load
+" set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
 "set colorcolumn=200
 highlight ColorColumn ctermbg=233
@@ -123,7 +116,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 Plugin 'python-mode/python-mode'
@@ -196,7 +188,7 @@ let g:auto_save = 1  " enable AutoSave on Vim startup
 
 call vundle#end()
 
-colorscheme desert
+colorscheme gruvbox
 
 "nnoremapG<leader>a <C-]>
 nnoremap <leader>t <c-t>
@@ -226,4 +218,3 @@ autocmd FileType python map <buffer> <F10> :w<CR>:exec '!python3' shellescape(@%
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
-nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
