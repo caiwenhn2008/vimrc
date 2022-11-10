@@ -102,7 +102,6 @@ Plug 'voldikss/vim-floaterm'
 
 Plug 'airblade/vim-gitgutter'
 let g:gitgutter_enabled = 1
-Plug 'lewis6991/gitsigns.nvim'
 Plug 'jiangmiao/auto-pairs'
 
 Plug '907th/vim-auto-save'
@@ -241,7 +240,6 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 lua << EOF
-require('gitsigns').setup()
 local telescope = require('telescope')
 telescope.setup {
   defaults = {
