@@ -301,6 +301,7 @@ let g:NERDTreeGitStatusUntrackedFilesMode = 'all'
 let g:NERDTreeWinSize=45
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <C-e> :NERDTreeCWD<CR>
 
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 nnoremap <silent> <space><space>  :lua require("harpoon.ui").toggle_quick_menu()<cr>

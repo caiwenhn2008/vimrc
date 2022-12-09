@@ -1,8 +1,7 @@
 {
   "solargraph.useBundler": false,
-  // "solargraph.commandPath": "$HOME/.rbenv/shims/solargraph",
   "solargraph.bundlerPath": "bundle",
-  "diagnostic.virtualText": true,
+  "diagnostic.virtualText": false,
   "diagnostic.virtualTextCurrentLineOnly": false,
   "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
   "codeLens.enable": true,
@@ -11,7 +10,13 @@
   "yaml.schemas": {
     "kubernetes": "/*.yaml"
   },
-  "coc.preferences.formatOnSaveFiletypes": ["json", "go", "python", "java", "javascript"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "json",
+    "go",
+    "python",
+    "java",
+    "javascript"
+  ],
   "suggest.completionItemKindLabels": {
     "class": "\uf0e8",
     "color": "\ue22b",
@@ -38,6 +43,5 @@
     "unit": "\uf475",
     "value": "\uf89f",
     "variable": "\ue71b"
-  },
-  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd"
+  }
 }
