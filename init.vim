@@ -187,7 +187,10 @@ let g:airline_theme='simple'
 
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
-
+nnoremap <c-d> <c-d>zz
+nnoremap <c-u> <c-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 " nnoremap <C-J> <C-W><C-J>
 " nnoremap <C-K> <C-W><C-K>
