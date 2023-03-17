@@ -42,6 +42,11 @@ nmap 'd 'D
 nmap mf mF
 nmap 'f 'F
 
+nnoremap <c-d> <c-d>zz
+nnoremap <c-u> <c-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
 let mapleader=" "
 set sneak
 
