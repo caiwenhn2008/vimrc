@@ -74,6 +74,7 @@ Plug 'vim-test/vim-test'
 Plug 'mileszs/ack.vim'
 let g:ackprg = 'ag --nogroup --nocolor --column'
 Plug 'github/copilot.vim'
+Plug 'dstein64/vim-startuptime'
 call plug#end()
 
 
