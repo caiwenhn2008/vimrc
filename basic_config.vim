@@ -76,3 +76,16 @@ autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd BufWritePre * :%s/\s\+$//e
 
 
+nnoremap <c-d> <c-d>zz
+nnoremap <c-u> <c-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
+
+nnoremap H gT
+nnoremap L gt
+nmap te :tabedit<CR>
+nmap tq :tabclose<CR>
