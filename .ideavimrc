@@ -1,8 +1,10 @@
 " ================================================================================================
-" = Extensions =====================================
-" ================================================================================================
-Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround' " Surrounding ysiw)
 Plug 'preservim/nerdtree'
+Plug 'tpope/vim-commentary' " For Commenting gcc & gc & gcgc
+Plug 'jiangmiao/auto-pairs'
+Plug 'easymotion/vim-easymotion'
+let mapleader = " "
 
 " ================================================================================================
 " = Basic settings =====================================
@@ -18,13 +20,21 @@ set relativenumber
 set incsearch
 set hlsearch
 set keep-english-in-normal
+set idearefactormode=keep
+set ideajoin
+set surround
+set easymotion
 
+noremap <Esc> <nop>
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
+nnoremap <C-j> :m +1<CR>
+nnoremap <C-k> :m -2<CR>
+inoremap <C-j> <Esc>:m +1<CR>gi
+inoremap <C-k> <Esc>:m -2<CR>gi
 " ================================================================================================
 " = No Leader Keymaps =====================================
-" ================================================================================================
-nmap ge <action>(GotoNextError)
-nmap gt <action>(GotoTest)
-nmap gm <action>(MethodUp)
 nmap gr <action>(FindUsages)
 " last changed in current buffer(file)
 nmap ga '.
@@ -34,71 +44,21 @@ vmap p "_dp
 
 " bookmark in whole program
 nmap ma mA
-nmap 'a 'A
-nmap ms mS
-nmap 's 'S
-nmap md mD
-nmap 'd 'D
-nmap mf mF
-nmap 'f 'F
 
-nnoremap <c-d> <c-d>zz
-nnoremap <c-u> <c-u>zz
-nnoremap n nzzzv
-nnoremap N Nzzzv
-
-let mapleader=" "
-set sneak
-
-
-" f: Find/Format ⭐️
-nmap <leader>ff <action>(GotoFile)
-
-nmap <leader>fl <action>(SelectInProjectView)
-
-nmap <leader>ft <action>(FindInPath)
-
-nmap <leader>fc <action>(GotoAction)
-
-nmap <leader>fp <action>(OpenProjectWindows)
-
-nmap <leader>fm <action>(ReformatCode) \| <action>(OptimizeImports)
-
-" g: Git ⭐️
-nmap <leader>gr :action Vcs.RollbackChangedLines<CR>
-
-nmap <leader>lr <action>(RenameElement)
-
-
-" n: No ⭐️
-nmap <leader>n :nohlsearch<CR>
-
-
-" s: Show ⭐️
-nmap <leader>ss <action>(FileStructurePopup)
-nmap <leader>sb <action>(ShowBookmarks)
-
-" r: Run/Re ⭐️
+nmap <C-p> <action>(GotoFile)
+nmap <leader>s <action>(GotoClass)
+nmap <leader>f <action>(FindInPath)
+nmap <leader>h <action>(PreviousTab)
+nmap <leader>l <action>(NextTab)
+nmap <leader>m <action>(Git.Menu)
+nmap <leader>/ <action>(ShowErrorDescription)
+nmap <C-n>  <action>(ActivateProjectToolWindow)
+nmap <leader>e <action>(GotoNextError)
 nmap <leader>rr <action>(Rerun)
-nmap <leader>rt <action>(RerunTests)
-map <leader>rn <action>(RenameElement)
+nmap <leader>cr <action>(ContextRun)
+nmap <leader>d <action>(Debug)
+nnor<emap <leader><leader> <C-Tab>
 
-" w: Window ⭐️
-nmap <leader>wo <action>(UnsplitAll) \| <action>(HideAllWindows)
-nmap <leader>wc <c-w>c
-
-
-" c: Close ⭐️;
-nmap <leader>c :q!<CR>
-
-" e: Toggle Explorer ⭐️
-nmap <leader>e <action>(ActivateProjectToolWindow)
-" e: Extract
-" extract method/function
-vmap <leader>em <action>(ExtractMethod)
-" extract constant
-vmap <leader>ec <action>(IntroduceConstant)
-" extract field
-vmap <leader>ef <action>(IntroduceField)
-" extract variable
-vmap <leader>ev <action>(IntroduceVariable)
+set NERDTree
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'

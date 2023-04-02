@@ -172,6 +172,5 @@ nmap <leader>ca  <Plug>(coc-codeaction)
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 nnoremap <silent> <space>q  :<C-u>CocAction<cr>
 
-nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
 let g:coc_global_extensions = [ 'coc-yank', 'coc-snippets', 'coc-prettier', 'coc-eslint', 'coc-vimlsp', 'coc-tsserver', 'coc-solargraph', 'coc-pyright', 'coc-markdownlint', 'coc-json', 'coc-java-lombok', 'coc-java', 'coc-go', 'coc-clangd']
