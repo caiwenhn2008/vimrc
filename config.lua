@@ -1,0 +1,52 @@
+-- Read the docs: https://www.lunarvim.org/docs/configuration
+-- Example configs: https://github.com/LunarVim/starter.lvim
+-- Video Tutorials: https://www.youtube.com/watch?v=sFA9kX-Ud_c&list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6
+-- Forum: https://www.reddit.com/r/lunarvim/
+-- Discord: https://discord.com/invite/Xb9B4Ny
+lvim.colorscheme = "gruvbox"
+vim.opt.tabstop = 2
+vim.opt.relativenumber = true
+vim.opt.shiftwidth = 2
+vim.opt.guifont = "monospace:h17"
+vim.opt.wrap = true
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+lvim.plugins = {
+  {"ellisonleao/gruvbox.nvim", priority = 1000 , config = true},
+  {"weizheheng/ror.nvim"},
+  {
+    "stevearc/dressing.nvim",
+    config = function()
+      require("dressing").setup({
+        input = {
+          min_width = { 60, 0.9 },
+        },
+        select = {
+          -- telescope = require('telescope.themes').get_ivy({...})
+          telescope = require('telescope.themes').get_dropdown({ layout_config = { height = 15, width = 90 } }), }
+      })
+    end,
+  },
+  {"rcarriga/nvim-notify"},
+  {
+    "L3MON4D3/LuaSnip",
+    -- follow latest release.
+    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    -- install jsregexp (optional!).
+    build = "make install_jsregexp",
+    config = function ()
+      require("luasnip.loaders.from_vscode").lazy_load()
+    end
+  },
+  {"907th/vim-auto-save",
+  config = function ()
+    vim.cmd("let g:auto_save = 1")
+  end}
+}
+lvim.builtin.which_key.mappings["r"] = {
+    name = "Ruby on Rails",
+    c = { "<cmd>lua require('ror.commands').list_commands()<cr>", "RoR Menu" },
+}
+lvim.builtin.which_key.mappings["v"] = {
+  "<C-W>v", "split screen"
+}
