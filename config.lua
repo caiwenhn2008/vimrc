@@ -38,11 +38,28 @@ lvim.plugins = {
       require("luasnip.loaders.from_vscode").lazy_load()
     end
   },
-  {"907th/vim-auto-save",
-  config = function ()
-    vim.cmd("let g:auto_save = 1")
-  end}
+  {
+    "907th/vim-auto-save",
+    config = function ()
+      vim.cmd("let g:auto_save = 1")
+    end
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  }
 }
+
+
+
 lvim.builtin.which_key.mappings["r"] = {
     name = "Ruby on Rails",
     c = { "<cmd>lua require('ror.commands').list_commands()<cr>", "RoR Menu" },
@@ -50,3 +67,28 @@ lvim.builtin.which_key.mappings["r"] = {
 lvim.builtin.which_key.mappings["v"] = {
   "<C-W>v", "split screen"
 }
+lvim.builtin.which_key.mappings["h"] = {
+  "<C-W>s", "split screen"
+}
+
+--setup copilot
+local ok, copilot = pcall(require, "copilot")
+if not ok then
+  return
+end
+
+copilot.setup {
+  suggestion = {
+    keymap = {
+      accept = "<c-l>",
+      next = "<c-j>",
+      prev = "<c-k>",
+      dismiss = "<c-h>",
+    },
+  },
+}
+
+local opts = { noremap = true, silent = true }
+vim.api.nvim_set_keymap("n", "<c-s>", "<cmd>lua require('copilot.suggestion').toggle_auto_trigger()<CR>", opts)
+--end of setup copilot
+
