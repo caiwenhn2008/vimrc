@@ -11,9 +11,13 @@ vim.opt.guifont = "monospace:h17"
 vim.opt.wrap = true
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.g.qs_highlight_on_keys = {'f', 'F', 't', 'T'}
 lvim.plugins = {
   {"ellisonleao/gruvbox.nvim", priority = 1000 , config = true},
   {"weizheheng/ror.nvim"},
+  {"unblevable/quick-scope"},
   {
     "stevearc/dressing.nvim",
     config = function()
