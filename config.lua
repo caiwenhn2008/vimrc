@@ -92,8 +92,11 @@ lvim.builtin.which_key.mappings["n"] = {
 lvim.builtin.which_key.mappings["/"] = {
   ":e ~/.zshrc<CR>", "config bash"
 }
+
 lvim.builtin.which_key.mappings["r"] = {
-  ":TestFile -strategy=neovim<CR>", "test file"
+  name = "Run App",
+  t = { ":TestFile -strategy=neovim<CR>", "test file" },
+  p = { ":!python3 %<CR>", "run python" },
 }
 
 
