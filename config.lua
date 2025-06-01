@@ -14,6 +14,7 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.g.qs_highlight_on_keys = {'f', 'F', 't', 'T'}
+vim.g.ackprg = "ag --nogroup --nocolor --column"
 lvim.plugins = {
   {"ellisonleao/gruvbox.nvim", priority = 1000 , config = true},
   {"weizheheng/ror.nvim"},
@@ -59,8 +60,16 @@ lvim.plugins = {
     config = function()
       require("copilot_cmp").setup()
     end,
+  },
+  {
+    "mileszs/ack.vim"
+  },
+  {
+    "vim-test/vim-test"
   }
 }
+
+
 
 
 
@@ -73,6 +82,9 @@ lvim.builtin.which_key.mappings["v"] = {
 }
 lvim.builtin.which_key.mappings["h"] = {
   "<C-W>s", "split screen"
+}
+lvim.builtin.which_key.mappings["t"] = {
+  ":Ack<CR>", "ack search"
 }
 
 --setup copilot
