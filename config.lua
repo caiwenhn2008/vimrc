@@ -73,10 +73,10 @@ lvim.plugins = {
 
 
 
-lvim.builtin.which_key.mappings["r"] = {
-    name = "Ruby on Rails",
-    c = { "<cmd>lua require('ror.commands').list_commands()<cr>", "RoR Menu" },
-}
+-- lvim.builtin.which_key.mappings["r"] = {
+--     name = "Ruby on Rails",
+--     c = { "<cmd>lua require('ror.commands').list_commands()<cr>", "RoR Menu" },
+-- }
 lvim.builtin.which_key.mappings["v"] = {
   "<C-W>v", "split screen"
 }
@@ -86,6 +86,17 @@ lvim.builtin.which_key.mappings["h"] = {
 lvim.builtin.which_key.mappings["t"] = {
   ":Ack<CR>", "ack search"
 }
+lvim.builtin.which_key.mappings["n"] = {
+  ":let @/ = ''<CR>", "no highlight"
+}
+lvim.builtin.which_key.mappings["/"] = {
+  ":e ~/.zshrc<CR>", "config bash"
+}
+lvim.builtin.which_key.mappings["r"] = {
+  ":TestFile -strategy=neovim<CR>", "test file"
+}
+
+
 
 --setup copilot
 local ok, copilot = pcall(require, "copilot")
