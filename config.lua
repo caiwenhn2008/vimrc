@@ -66,17 +66,21 @@ lvim.plugins = {
   },
   {
     "vim-test/vim-test"
-  }
+  },
+  { "mfussenegger/nvim-dap-python"},
+  { "nvim-neotest/neotest"},
+  { "nvim-neotest/neotest-python"},
+  { "nvim-neotest/nvim-nio"},
+ 
 }
 
+lvim.builtin.dap.active = true
+local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
+pcall(function()
+ require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
+end)
 
 
-
-
--- lvim.builtin.which_key.mappings["r"] = {
---     name = "Ruby on Rails",
---     c = { "<cmd>lua require('ror.commands').list_commands()<cr>", "RoR Menu" },
--- }
 lvim.builtin.which_key.mappings["v"] = {
   "<C-W>v", "split screen"
 }
