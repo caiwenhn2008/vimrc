@@ -13,12 +13,25 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.g.qs_highlight_on_keys = {'f', 'F', 't', 'T'}
 vim.g.ackprg = "ag --nogroup --nocolor --column"
+vim.cmd("nnoremap q <nop>")
 lvim.plugins = {
   {"ellisonleao/gruvbox.nvim", priority = 1000 , config = true},
   {"weizheheng/ror.nvim"},
-  {"unblevable/quick-scope"},
+  {
+    'unblevable/quick-scope' , -- Easy movement with f, F.
+    init = function()
+      vim.cmd([[
+        " Trigger a highlight in the appropriate direction when pressing these keys:
+        let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+        highlight QuickScopePrimary guifg='#00C7DF' gui=underline ctermfg=155 cterm=underline
+        highlight QuickScopeSecondary guifg='#afff5f' gui=underline ctermfg=81 cterm=underline
+
+        let g:qs_max_chars=150
+      ]])
+    end
+  },
   {
     "stevearc/dressing.nvim",
     config = function()
