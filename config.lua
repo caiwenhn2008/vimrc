@@ -83,7 +83,7 @@ lvim.plugins = {
   { "mfussenegger/nvim-dap-python"},
   { "nvim-neotest/neotest"},
   { "nvim-neotest/neotest-python"},
-  { "nvim-neotest/nvim-nio"},
+  { "theHamsta/nvim-dap-virtual-text"},
  
 }
 
@@ -93,6 +93,9 @@ pcall(function()
  require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
 end)
 
+require("nvim-dap-virtual-text").setup {
+  enabled = true,                        -- enable this plugin (the default)
+}
 
 lvim.builtin.which_key.mappings["v"] = {
   "<C-W>v", "split screen"
