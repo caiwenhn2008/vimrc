@@ -87,6 +87,8 @@ lvim.plugins = {
  
 }
 
+lvim.builtin.treesitter.ignore_install = { "javascript" }
+lvim.builtin.treesitter.highlight.disable = { "javascript" }
 lvim.builtin.dap.active = true
 local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
 pcall(function()
