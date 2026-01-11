@@ -10,14 +10,28 @@ vim.opt.shiftwidth = 2
 vim.opt.guifont = "monospace:h17"
 vim.opt.wrap = true
 vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.g.ackprg = "ag --nogroup --nocolor --column"
+vim.o.foldenable = false
+vim.o.foldcolumn = "0"
+vim.o.foldmethod = "manual"
 vim.cmd("nnoremap q <nop>")
 lvim.plugins = {
   {"ellisonleao/gruvbox.nvim", priority = 1000 , config = true},
   {"weizheheng/ror.nvim"},
+  -- Disable illuminate for Java files to avoid treesitter errors
+  {
+    "RRethy/vim-illuminate",
+    config = function()
+      require('illuminate').configure({
+        filetypes_denylist = {
+          'java',
+        },
+      })
+    end
+  },
   {
     'unblevable/quick-scope' , -- Easy movement with f, F.
     init = function()
@@ -90,7 +104,7 @@ lvim.plugins = {
       require('claude-code').setup({
         -- Terminal window settings
         window = {
-          split_ratio = 0.4,      -- Percentage of screen for the terminal window (height for horizontal, width for vertical splits)
+          split_ratio = 0.5,      -- Percentage of screen for the terminal window (height for horizontal, width for vertical splits)
           position = "vertical",  -- Position of the window: "botright", "topleft", "vertical", "float", etc.
           enter_insert = true,    -- Whether to enter insert mode when opening Claude Code
           hide_numbers = true,    -- Hide line numbers in the terminal window
@@ -152,8 +166,16 @@ lvim.plugins = {
   }
 }
 
-lvim.builtin.treesitter.ignore_install = { "javascript" }
-lvim.builtin.treesitter.highlight.disable = { "javascript" }
+-- lvim.builtin.treesitter.ignore_install = { "javascript" }
+-- lvim.builtin.treesitter.highlight.disable = { "javascript" }
+
+-- Ensure treesitter java parser is installed and updated
+lvim.builtin.treesitter.ensure_installed = {
+  "java",
+  "lua",
+  "python",
+}
+
 lvim.builtin.dap.active = true
 local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
 pcall(function()
