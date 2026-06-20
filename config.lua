@@ -84,10 +84,8 @@ lvim.plugins = {
   {
     "vim-test/vim-test"
   },
-  { "mfussenegger/nvim-dap-python"},
   { "nvim-neotest/neotest"},
   { "nvim-neotest/neotest-python"},
-  { "theHamsta/nvim-dap-virtual-text"},
   {'nvim-lua/plenary.nvim'},
   {
     'akinsho/toggleterm.nvim',
@@ -148,16 +146,6 @@ lvim.builtin.treesitter.ensure_installed = {
   "lua",
   "python",
   "javascript"
-}
-
-lvim.builtin.dap.active = true
-local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
-pcall(function()
- require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
-end)
-
-require("nvim-dap-virtual-text").setup {
-  enabled = true,                        -- enable this plugin (the default)
 }
 
 lvim.builtin.which_key.mappings["v"] = {
