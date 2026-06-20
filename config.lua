@@ -14,13 +14,15 @@ vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.g.ackprg = "ag --nogroup --nocolor --column"
+-- Show special characters (whitespace, tabs, etc.)
+vim.opt.list = true
+vim.opt.listchars = { tab = "→ ", trail = "·", nbsp = "␣" }
 vim.o.foldenable = false
 vim.o.foldcolumn = "0"
 vim.o.foldmethod = "manual"
 vim.cmd("nnoremap q <nop>")
 lvim.plugins = {
   {"ellisonleao/gruvbox.nvim", priority = 1000 , config = true},
-  {"weizheheng/ror.nvim"},
   -- Disable illuminate for Java files to avoid treesitter errors
   {
     "RRethy/vim-illuminate",
@@ -77,18 +79,6 @@ lvim.plugins = {
     end
   },
   {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-  },
-  {
-    "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua" },
-    config = function()
-      require("copilot_cmp").setup()
-    end,
-  },
-  {
     "mileszs/ack.vim"
   },
   {
@@ -99,71 +89,6 @@ lvim.plugins = {
   { "nvim-neotest/neotest-python"},
   { "theHamsta/nvim-dap-virtual-text"},
   {'nvim-lua/plenary.nvim'},
-  {'greggh/claude-code.nvim',
-    config = function()
-      require('claude-code').setup({
-        -- Terminal window settings
-        window = {
-          split_ratio = 0.5,      -- Percentage of screen for the terminal window (height for horizontal, width for vertical splits)
-          position = "vertical",  -- Position of the window: "botright", "topleft", "vertical", "float", etc.
-          enter_insert = true,    -- Whether to enter insert mode when opening Claude Code
-          hide_numbers = true,    -- Hide line numbers in the terminal window
-          hide_signcolumn = true, -- Hide the sign column in the terminal window
-
-          -- Floating window configuration (only applies when position = "float")
-          float = {
-            width = "80%",        -- Width: number of columns or percentage string
-            height = "80%",       -- Height: number of rows or percentage string
-            row = "center",       -- Row position: number, "center", or percentage string
-            col = "center",       -- Column position: number, "center", or percentage string
-            relative = "editor",  -- Relative to: "editor" or "cursor"
-            border = "rounded",   -- Border style: "none", "single", "double", "rounded", "solid", "shadow"
-          },
-        },
-        -- File refresh settings
-        refresh = {
-          enable = true,           -- Enable file change detection
-          updatetime = 100,        -- updatetime when Claude Code is active (milliseconds)
-          timer_interval = 1000,   -- How often to check for file changes (milliseconds)
-          show_notifications = true, -- Show notification when files are reloaded
-        },
-        -- Git project settings
-        git = {
-          use_git_root = true,     -- Set CWD to git root when opening Claude Code (if in git project)
-        },
-        -- Shell-specific settings
-        shell = {
-          separator = '&&',        -- Command separator used in shell commands
-          pushd_cmd = 'pushd',     -- Command to push directory onto stack (e.g., 'pushd' for bash/zsh, 'enter' for nushell)
-          popd_cmd = 'popd',       -- Command to pop directory from stack (e.g., 'popd' for bash/zsh, 'exit' for nushell)
-        },
-        -- Command settings
-        command = "claude",        -- Command used to launch Claude Code
-        -- Command variants
-        command_variants = {
-          -- Conversation management
-          continue = "--continue", -- Resume the most recent conversation
-          resume = "--resume",     -- Display an interactive conversation picker
-
-          -- Output options
-          verbose = "--verbose",   -- Enable verbose logging with full turn-by-turn output
-        },
-        -- Keymaps
-        keymaps = {
-          toggle = {
-            normal = "<C-,>",       -- Normal mode keymap for toggling Claude Code, false to disable
-            terminal = "<C-,>",     -- Terminal mode keymap for toggling Claude Code, false to disable
-            variants = {
-              continue = "<leader>cC", -- Normal mode keymap for Claude Code with continue flag
-              verbose = "<leader>cV",  -- Normal mode keymap for Claude Code with verbose flag
-            },
-          },
-          window_navigation = true, -- Enable window navigation keymaps (<C-h/j/k/l>)
-          scrolling = true,         -- Enable scrolling keymaps (<C-f/b>) for page up/down
-        }
-      }) 
-    end
-  },
   {
     'akinsho/toggleterm.nvim',
     version = "*",
@@ -192,6 +117,25 @@ lvim.plugins = {
         },
       })
     end
+  },
+  {
+    "stevearc/aerial.nvim",
+    config = function()
+      require("aerial").setup({
+        -- Priority list of preferred backends for aerial
+        backends = { "treesitter", "lsp", "markdown" },
+        -- Show box drawing characters for the tree hierarchy
+        show_guides = true,
+        -- Keybindings
+        on_attach = function(bufnr)
+          -- Toggle aerial
+          vim.keymap.set("n", "<leader>o", "<cmd>AerialToggle<CR>", { buffer = bufnr })
+          -- Jump forwards/backwards with '{' and '}'
+          vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+          vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+        end,
+      })
+    end
   }
 }
 
@@ -203,6 +147,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "java",
   "lua",
   "python",
+  "javascript"
 }
 
 lvim.builtin.dap.active = true
@@ -237,30 +182,9 @@ lvim.builtin.which_key.mappings["r"] = {
   p = { ":!python3 %<CR>", "run python" },
 }
 
-lvim.builtin.which_key.mappings["c"] = {
-  name = "Claude Code",
-  c = { ":ClaudeCode<CR>", "open" },
+lvim.builtin.which_key.mappings["o"] = {
+  name = "Symbols/Outline",
+  o = { ":AerialToggle<CR>", "toggle outline" },
+  n = { ":AerialNext<CR>", "next symbol" },
+  p = { ":AerialPrev<CR>", "prev symbol" },
 }
-
-
---setup copilot
-local ok, copilot = pcall(require, "copilot")
-if not ok then
-  return
-end
-
-copilot.setup {
-  suggestion = {
-    keymap = {
-      accept = "<c-l>",
-      next = "<c-j>",
-      prev = "<c-k>",
-      dismiss = "<c-h>",
-    },
-  },
-}
-
-local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap("n", "<c-s>", "<cmd>lua require('copilot.suggestion').toggle_auto_trigger()<CR>", opts)
---end of setup copilot
-
