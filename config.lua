@@ -108,6 +108,8 @@ lvim.plugins = {
         float_opts = {
           border = "curved",
           winblend = 0,
+          width = function() return math.floor(vim.o.columns * 0.9) end,
+          height = function() return math.floor(vim.o.lines * 0.9) end,
           highlights = {
             border = "Normal",
             background = "Normal",
@@ -154,7 +156,7 @@ lvim.builtin.which_key.mappings["v"] = {
 lvim.builtin.which_key.mappings["h"] = {
   "<C-W>s", "split screen"
 }
-lvim.builtin.which_key.mappings["t"] = {
+lvim.builtin.which_key.mappings["s"] = {
   ":Ack<CR>", "ack search"
 }
 lvim.builtin.which_key.mappings["n"] = {
