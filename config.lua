@@ -150,6 +150,15 @@ lvim.builtin.treesitter.ensure_installed = {
   "javascript"
 }
 
+-- Telescope text search (live grep, ivy theme — preview on top, prompt+results below)
+lvim.builtin.which_key.mappings["t"] = {
+  "<cmd>Telescope live_grep theme=ivy<CR>", "Telescope live grep"
+}
+-- Telescope find files (ivy theme — same layout as live grep)
+lvim.builtin.which_key.mappings["f"] = {
+  "<cmd>Telescope find_files theme=ivy<CR>", "Telescope find files"
+}
+
 lvim.builtin.which_key.mappings["v"] = {
   "<C-W>v", "split screen"
 }
