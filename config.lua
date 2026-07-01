@@ -17,9 +17,35 @@ vim.g.ackprg = "ag --nogroup --nocolor --column"
 -- Show special characters (whitespace, tabs, etc.)
 vim.opt.list = true
 vim.opt.listchars = { tab = "→ ", trail = "·", nbsp = "␣" }
-vim.o.foldenable = false
+vim.o.foldenable = true
 vim.o.foldcolumn = "0"
 vim.o.foldmethod = "manual"
+
+-- Auto-fold Java import block on file open (IntelliJ/Eclipse-style)
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufWinEnter" }, {
+  pattern = "*.java",
+  callback = function(args)
+    vim.schedule(function()
+      if not vim.api.nvim_buf_is_valid(args.buf) then return end
+      local lines = vim.api.nvim_buf_get_lines(args.buf, 0, -1, false)
+      local first, last
+      for i, line in ipairs(lines) do
+        if line:match("^%s*import%s") then
+          if not first then first = i end
+          last = i
+        end
+      end
+      if first and last and last > first then
+        vim.api.nvim_buf_call(args.buf, function()
+          -- Open ALL folds (kills LSP/treesitter method/class folds), then
+          -- create a single manual fold covering just the import block.
+          pcall(vim.cmd, "normal! zR")
+          pcall(vim.cmd, string.format("%d,%dfold", first, last))
+        end)
+      end
+    end)
+  end,
+})
 vim.cmd("nnoremap q <nop>")
 lvim.plugins = {
   {"ellisonleao/gruvbox.nvim", priority = 1000 , config = true},
