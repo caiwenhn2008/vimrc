@@ -213,3 +213,10 @@ lvim.builtin.which_key.mappings["o"] = {
   n = { ":AerialNext<CR>", "next symbol" },
   p = { ":AerialPrev<CR>", "prev symbol" },
 }
+
+-- LSP references with live preview (Telescope, ivy theme — matches <leader>t / <leader>f).
+-- Must override LunarVim's buffer-local LSP mapping (applied on LspAttach),
+-- otherwise a global `vim.keymap.set` loses to the buffer-local one.
+lvim.lsp.buffer_mappings.normal_mode["gr"] = {
+  "<cmd>Telescope lsp_references theme=ivy<CR>", "LSP references (preview)"
+}
